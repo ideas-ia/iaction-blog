@@ -3,6 +3,7 @@ import { Inter, Space_Grotesk } from "next/font/google";
 import type React from "react";
 import { ThemeProvider } from "@/components/theme-provider";
 import { I18nProvider } from "@/lib/i18n-context";
+import { siteConfig } from "@/lib/site";
 
 import "./globals.css";
 
@@ -10,9 +11,57 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space-grotesk" });
 
 export const metadata: Metadata = {
-  title: "iaction | Automatiza tu Negocio con Inteligencia Artificial",
-  description:
-    "Desarrollo de soluciones de IA personalizadas que reducen costos operativos hasta un 70%. Automatizaciones, chatbots e integraciones inteligentes.",
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: "iaction | Automatiza tu Negocio con Inteligencia Artificial",
+    template: "%s | iaction",
+  },
+  description: siteConfig.description,
+  keywords: [...siteConfig.keywords],
+  alternates: {
+    canonical: "/",
+    languages: {
+      es: "/",
+      en: "/?lang=en",
+    },
+  },
+  authors: [{ name: siteConfig.name, url: siteConfig.url }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
+  category: "technology",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    url: siteConfig.url,
+    title: "iaction | Automatiza tu Negocio con Inteligencia Artificial",
+    description: siteConfig.description,
+    siteName: siteConfig.name,
+    locale: siteConfig.locale,
+    images: [
+      {
+        url: siteConfig.ogImage,
+        width: 192,
+        height: 192,
+        alt: "Logo de iaction",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: "iaction | Automatiza tu Negocio con Inteligencia Artificial",
+    description: siteConfig.description,
+    images: [siteConfig.ogImage],
+  },
   manifest: "/manifest.json",
   icons: {
     icon: [
@@ -46,6 +95,7 @@ export const metadata: Metadata = {
     ],
   },
   other: {
+    "theme-color": "#ffffff",
     "msapplication-config": "/browserconfig.xml",
     "msapplication-TileColor": "#ffffff",
     "msapplication-TileImage": "/ms-icon-144x144.png",

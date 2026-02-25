@@ -26,7 +26,7 @@ export function Navbar() {
         <a href="/" className="flex items-center gap-2">
           <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary">
             <Image
-              src="/favicon-32x32.png"
+              src="/android-icon-192x192.png"
               alt="iaction logo"
               width={20}
               height={20}
