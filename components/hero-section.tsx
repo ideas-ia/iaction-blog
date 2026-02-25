@@ -135,11 +135,12 @@ export function HeroSection() {
               </div>
               <div className="absolute left-1/2 top-0 flex h-14 w-14 -translate-x-1/2 items-center justify-center rounded-xl border border-border bg-card shadow-sm overflow-hidden">
                 <Image
-                  src="/android-icon-192x192.png"
+                  src="/android-icon-48x48.png"
                   alt="iaction logo"
                   width={40}
                   height={40}
                   className="h-10 w-10 object-cover"
+                  sizes="40px"
                 />
               </div>
               <div className="absolute right-0 top-1/2 flex h-14 w-14 -translate-y-1/2 items-center justify-center rounded-xl border border-border bg-card shadow-sm">

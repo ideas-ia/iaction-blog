@@ -32,11 +32,12 @@ export function Footer() {
           >
             <div className="flex h-8 w-8 items-center justify-center rounded-lg overflow-hidden">
               <Image
-                src="/android-icon-192x192.png"
+                src="/android-icon-48x48.png"
                 alt="iaction logo"
                 width={32}
                 height={32}
                 className="h-8 w-8 object-cover"
+                sizes="32px"
               />
             </div>
             <span className="font-display text-base font-bold text-foreground">iaction</span>

@@ -31,11 +31,13 @@ export function Navbar() {
         >
           <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary">
             <Image
-              src="/android-icon-192x192.png"
+              src="/android-icon-48x48.png"
               alt="iaction logo"
               width={20}
               height={20}
               className="rounded-sm"
+              sizes="20px"
+              priority
             />
           </div>
           <span className="font-display text-lg font-bold text-foreground">iaction</span>
