@@ -1,4 +1,4 @@
-export type Locale = "es" | "en"
+export type Locale = "es" | "en";
 
 export const translations = {
   es: {
@@ -89,8 +89,7 @@ export const translations = {
     solutions: {
       label: "Soluciones",
       title: "Proyectos que ya estan generando resultados",
-      subtitle:
-        "Soluciones implementadas para distintas industrias y necesidades de negocio.",
+      subtitle: "Soluciones implementadas para distintas industrias y necesidades de negocio.",
       items: [
         {
           title: "Transcripcion, Categorizacion y Analisis de Atenciones",
@@ -217,14 +216,12 @@ export const translations = {
             "Los tiempos dependen del alcance del proyecto. Automatizaciones simples pueden estar listas en 1-2 semanas, mientras que proyectos mas complejos toman de 4 a 8 semanas. Siempre entrego un cronograma detallado antes de comenzar.",
         },
         {
-          question:
-            "Que tecnologias utilizas para las automatizaciones?",
+          question: "Que tecnologias utilizas para las automatizaciones?",
           answer:
             "Trabajo con las tecnologias mas avanzadas del mercado: OpenAI, Claude, LangChain, Python, Node.js, APIs REST, bases de datos y plataformas de integracion como Zapier y Make. Selecciono la mejor combinacion segun tus necesidades especificas.",
         },
         {
-          question:
-            "Necesito conocimientos tecnicos para usar las soluciones?",
+          question: "Necesito conocimientos tecnicos para usar las soluciones?",
           answer:
             "No. Todas las soluciones que desarrollo estan disenadas para ser intuitivas y faciles de usar. Ademas, proporciono documentacion completa, capacitacion y soporte continuo para que tu equipo pueda operar todo sin problemas.",
         },
@@ -243,8 +240,7 @@ export const translations = {
       subtitle:
         "Cuentame sobre tu proyecto y te envio una propuesta personalizada en menos de 24 horas.",
       successTitle: "Mensaje Enviado",
-      successMessage:
-        "Te contactare en menos de 24 horas. Gracias por tu interes.",
+      successMessage: "Te contactare en menos de 24 horas. Gracias por tu interes.",
       nameLabel: "Nombre",
       namePlaceholder: "Tu nombre completo",
       emailLabel: "Email",
@@ -252,17 +248,14 @@ export const translations = {
       phoneLabel: "Telefono",
       phonePlaceholder: "+52 55 1234 5678",
       messageLabel: "Mensaje",
-      messagePlaceholder:
-        "Describe brevemente tu proyecto o necesidad...",
+      messagePlaceholder: "Describe brevemente tu proyecto o necesidad...",
       submitButton: "Solicitar Cotizacion Ahora",
-      disclaimer:
-        "Sin compromisos \u00b7 Respuesta garantizada en 24 horas",
+      disclaimer: "Sin compromisos \u00b7 Respuesta garantizada en 24 horas",
     },
 
     // Footer
     footer: {
-      tagline:
-        "Soluciones de IA personalizadas para transformar tu negocio.",
+      tagline: "Soluciones de IA personalizadas para transformar tu negocio.",
       copyright: "Todos los derechos reservados.",
     },
 
@@ -361,8 +354,7 @@ export const translations = {
     solutions: {
       label: "Solutions",
       title: "Projects already delivering results",
-      subtitle:
-        "Solutions implemented across different industries and business needs.",
+      subtitle: "Solutions implemented across different industries and business needs.",
       items: [
         {
           title: "Transcription, Categorization & Interaction Analysis",
@@ -489,14 +481,12 @@ export const translations = {
             "Timelines depend on the project scope. Simple automations can be ready in 1-2 weeks, while more complex projects take 4 to 8 weeks. I always deliver a detailed timeline before starting.",
         },
         {
-          question:
-            "What technologies do you use for automations?",
+          question: "What technologies do you use for automations?",
           answer:
             "I work with the most advanced technologies on the market: OpenAI, Claude, LangChain, Python, Node.js, REST APIs, databases, and integration platforms like Zapier and Make. I select the best combination based on your specific needs.",
         },
         {
-          question:
-            "Do I need technical knowledge to use the solutions?",
+          question: "Do I need technical knowledge to use the solutions?",
           answer:
             "No. All solutions I develop are designed to be intuitive and easy to use. I also provide complete documentation, training, and ongoing support so your team can operate everything smoothly.",
         },
@@ -515,8 +505,7 @@ export const translations = {
       subtitle:
         "Tell me about your project and I'll send you a personalized proposal within 24 hours.",
       successTitle: "Message Sent",
-      successMessage:
-        "I'll contact you within 24 hours. Thank you for your interest.",
+      successMessage: "I'll contact you within 24 hours. Thank you for your interest.",
       nameLabel: "Name",
       namePlaceholder: "Your full name",
       emailLabel: "Email",
@@ -524,17 +513,14 @@ export const translations = {
       phoneLabel: "Phone",
       phonePlaceholder: "+1 555 123 4567",
       messageLabel: "Message",
-      messagePlaceholder:
-        "Briefly describe your project or need...",
+      messagePlaceholder: "Briefly describe your project or need...",
       submitButton: "Request a Quote Now",
-      disclaimer:
-        "No commitment \u00b7 Guaranteed response within 24 hours",
+      disclaimer: "No commitment \u00b7 Guaranteed response within 24 hours",
     },
 
     // Footer
     footer: {
-      tagline:
-        "Custom AI solutions to transform your business.",
+      tagline: "Custom AI solutions to transform your business.",
       copyright: "All rights reserved.",
     },
 
@@ -544,6 +530,6 @@ export const translations = {
       switchToDark: "Switch to dark mode",
     },
   },
-} as const
+} as const;
 
-export type Translations = (typeof translations)["es"]
+export type Translations = (typeof translations)["es"];

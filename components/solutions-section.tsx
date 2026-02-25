@@ -1,33 +1,35 @@
-"use client"
+"use client";
 
-import { useEffect, useRef } from "react"
-import { Headphones, ShoppingBag, Globe, BarChart3, Plug, Share2, UserCheck, FileText, BotMessageSquare } from "lucide-react"
-import { Card, CardContent } from "@/components/ui/card"
-import { useI18n } from "@/lib/i18n-context"
+import { BarChart3, Globe, Headphones, Plug, Share2, ShoppingBag, UserCheck } from "lucide-react";
+import { useEffect, useRef } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { useI18n } from "@/lib/i18n-context";
 
-const icons = [Headphones, ShoppingBag, Globe, BarChart3, Plug, Share2, UserCheck]
+const icons = [Headphones, ShoppingBag, Globe, BarChart3, Plug, Share2, UserCheck];
 
 export function SolutionsSection() {
-  const sectionRef = useRef<HTMLElement>(null)
-  const { t } = useI18n()
+  const sectionRef = useRef<HTMLElement>(null);
+  const { t } = useI18n();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
           if (entry.isIntersecting) {
-            entry.target.classList.add("animate-fade-in-up")
+            entry.target.classList.add("animate-fade-in-up");
           }
         }
       },
-      { threshold: 0.1 },
-    )
+      { threshold: 0.1 }
+    );
 
-    const elements = sectionRef.current?.querySelectorAll("[data-animate]")
-    elements?.forEach((el) => observer.observe(el))
+    const elements = sectionRef.current?.querySelectorAll("[data-animate]");
+    elements?.forEach((el) => {
+      observer.observe(el);
+    });
 
-    return () => observer.disconnect()
-  }, [])
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section ref={sectionRef} id="soluciones" className="bg-secondary/50 py-20 lg:py-28">
@@ -39,17 +41,15 @@ export function SolutionsSection() {
           <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
             <span className="text-balance">{t.solutions.title}</span>
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-            {t.solutions.subtitle}
-          </p>
+          <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">{t.solutions.subtitle}</p>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {t.solutions.items.map((solution, index) => {
-            const Icon = icons[index]
+            const Icon = icons[index];
             return (
               <Card
-                key={index}
+                key={solution.title}
                 data-animate
                 className="group border-border/60 bg-card opacity-0 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
                 style={{ animationDelay: `${index * 100}ms` }}
@@ -76,10 +76,10 @@ export function SolutionsSection() {
                   </div>
                 </CardContent>
               </Card>
-            )
+            );
           })}
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -1,32 +1,43 @@
-"use client"
+"use client";
 
-import { useEffect, useRef } from "react"
-import { MessageSquare, CalendarDays, ArrowRight, Bot, Sparkles, Zap, Network, BrainCircuit } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { useI18n } from "@/lib/i18n-context"
+import {
+  ArrowRight,
+  BrainCircuit,
+  CalendarDays,
+  MessageSquare,
+  Network,
+  Sparkles,
+  Zap,
+} from "lucide-react";
+import Image from "next/image";
+import { useEffect, useRef } from "react";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { useI18n } from "@/lib/i18n-context";
 
 export function HeroSection() {
-  const sectionRef = useRef<HTMLElement>(null)
-  const { t } = useI18n()
+  const sectionRef = useRef<HTMLElement>(null);
+  const { t } = useI18n();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
           if (entry.isIntersecting) {
-            entry.target.classList.add("animate-fade-in-up")
+            entry.target.classList.add("animate-fade-in-up");
           }
         }
       },
       { threshold: 0.1 }
-    )
+    );
 
-    const elements = sectionRef.current?.querySelectorAll("[data-animate]")
-    elements?.forEach((el) => observer.observe(el))
+    const elements = sectionRef.current?.querySelectorAll("[data-animate]");
+    elements?.forEach((el) => {
+      observer.observe(el);
+    });
 
-    return () => observer.disconnect()
-  }, [])
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section ref={sectionRef} className="relative overflow-hidden py-20 lg:py-32">
@@ -71,13 +82,23 @@ export function HeroSection() {
                   {t.hero.ctaQuote}
                 </a>
               </Button>
-              <Button asChild variant="outline" size="lg" className="gap-2 text-base bg-transparent">
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="gap-2 text-base bg-transparent"
+              >
                 <a href="#contacto">
                   <CalendarDays className="h-4 w-4" />
                   {t.hero.ctaConsult}
                 </a>
               </Button>
-              <Button asChild variant="ghost" size="lg" className="gap-2 text-base text-muted-foreground">
+              <Button
+                asChild
+                variant="ghost"
+                size="lg"
+                className="gap-2 text-base text-muted-foreground"
+              >
                 <a href="#resultados">
                   {t.hero.ctaCases}
                   <ArrowRight className="h-4 w-4" />
@@ -103,8 +124,14 @@ export function HeroSection() {
               <div className="absolute left-1/2 top-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-primary/10 ring-1 ring-primary/20">
                 <BrainCircuit className="h-10 w-10 text-primary" />
               </div>
-              <div className="absolute left-1/2 top-0 flex h-14 w-14 -translate-x-1/2 items-center justify-center rounded-xl border border-border bg-card shadow-sm">
-                <Bot className="h-6 w-6 text-primary" />
+              <div className="absolute left-1/2 top-0 flex h-14 w-14 -translate-x-1/2 items-center justify-center rounded-xl border border-border bg-card shadow-sm overflow-hidden">
+                <Image
+                  src="/android-icon-192x192.png"
+                  alt="iaction logo"
+                  width={40}
+                  height={40}
+                  className="h-10 w-10 object-cover"
+                />
               </div>
               <div className="absolute right-0 top-1/2 flex h-14 w-14 -translate-y-1/2 items-center justify-center rounded-xl border border-border bg-card shadow-sm">
                 <Sparkles className="h-6 w-6 text-primary" />
@@ -115,14 +142,33 @@ export function HeroSection() {
               <div className="absolute left-0 top-1/2 flex h-14 w-14 -translate-y-1/2 items-center justify-center rounded-xl border border-border bg-card shadow-sm">
                 <Network className="h-6 w-6 text-primary" />
               </div>
-              <svg className="absolute inset-0 h-full w-full" viewBox="0 0 320 320" fill="none">
-                <circle cx="160" cy="160" r="120" stroke="hsl(var(--border))" strokeWidth="1" strokeDasharray="4 4" />
-                <circle cx="160" cy="160" r="80" stroke="hsl(var(--primary) / 0.15)" strokeWidth="1" strokeDasharray="6 6" />
+              <svg
+                aria-hidden="true"
+                className="absolute inset-0 h-full w-full"
+                viewBox="0 0 320 320"
+                fill="none"
+              >
+                <circle
+                  cx="160"
+                  cy="160"
+                  r="120"
+                  stroke="hsl(var(--border))"
+                  strokeWidth="1"
+                  strokeDasharray="4 4"
+                />
+                <circle
+                  cx="160"
+                  cy="160"
+                  r="80"
+                  stroke="hsl(var(--primary) / 0.15)"
+                  strokeWidth="1"
+                  strokeDasharray="6 6"
+                />
               </svg>
             </div>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

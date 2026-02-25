@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import { useEffect, useRef } from "react"
-import { useI18n } from "@/lib/i18n-context"
+import { useEffect, useRef } from "react";
+import { useI18n } from "@/lib/i18n-context";
 
 const technologies = [
   { name: "Google Cloud", abbr: "GCP" },
@@ -20,7 +20,7 @@ const technologies = [
   { name: "LangChain", abbr: "LangChain" },
   { name: "Supabase", abbr: "Supabase" },
   { name: "Vercel", abbr: "Vercel" },
-]
+];
 
 function TechLogo({ name, abbr }: { name: string; abbr: string }) {
   return (
@@ -32,30 +32,32 @@ function TechLogo({ name, abbr }: { name: string; abbr: string }) {
       </div>
       <span className="text-sm font-medium text-foreground">{name}</span>
     </div>
-  )
+  );
 }
 
 export function TechMarqueeSection() {
-  const sectionRef = useRef<HTMLElement>(null)
-  const { t } = useI18n()
+  const sectionRef = useRef<HTMLElement>(null);
+  const { t } = useI18n();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
           if (entry.isIntersecting) {
-            entry.target.classList.add("animate-fade-in-up")
+            entry.target.classList.add("animate-fade-in-up");
           }
         }
       },
-      { threshold: 0.1 },
-    )
+      { threshold: 0.1 }
+    );
 
-    const elements = sectionRef.current?.querySelectorAll("[data-animate]")
-    elements?.forEach((el) => observer.observe(el))
+    const elements = sectionRef.current?.querySelectorAll("[data-animate]");
+    elements?.forEach((el) => {
+      observer.observe(el);
+    });
 
-    return () => observer.disconnect()
-  }, [])
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section ref={sectionRef} className="py-16 lg:py-20 overflow-hidden">
@@ -101,5 +103,5 @@ export function TechMarqueeSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

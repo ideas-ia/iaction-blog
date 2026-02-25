@@ -1,24 +1,24 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
-import { useTheme } from "next-themes"
-import { Moon, Sun } from "lucide-react"
-import { useI18n } from "@/lib/i18n-context"
+import { Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
+import { useI18n } from "@/lib/i18n-context";
 
 export function ThemeToggle() {
-  const { resolvedTheme, setTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
-  const { t } = useI18n()
+  const { resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const { t } = useI18n();
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
   if (!mounted) {
-    return <div className="h-8 w-14 rounded-full bg-muted" />
+    return <div className="h-8 w-14 rounded-full bg-muted" />;
   }
 
-  const isDark = resolvedTheme === "dark"
+  const isDark = resolvedTheme === "dark";
 
   return (
     <button
@@ -41,5 +41,5 @@ export function ThemeToggle() {
         )}
       </span>
     </button>
-  )
+  );
 }

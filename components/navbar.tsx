@@ -1,15 +1,16 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Bot, Menu, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { ThemeToggle } from "@/components/theme-toggle"
-import { LanguageToggle } from "@/components/language-toggle"
-import { useI18n } from "@/lib/i18n-context"
+import { Menu, X } from "lucide-react";
+import Image from "next/image";
+import { useState } from "react";
+import { LanguageToggle } from "@/components/language-toggle";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { Button } from "@/components/ui/button";
+import { useI18n } from "@/lib/i18n-context";
 
 export function Navbar() {
-  const [mobileOpen, setMobileOpen] = useState(false)
-  const { t } = useI18n()
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const { t } = useI18n();
 
   const navLinks = [
     { label: t.nav.services, href: "#servicios" },
@@ -17,14 +18,20 @@ export function Navbar() {
     { label: t.nav.process, href: "#proceso" },
     { label: t.nav.results, href: "#resultados" },
     { label: t.nav.faq, href: "#faq" },
-  ]
+  ];
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-lg">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <a href="#" className="flex items-center gap-2">
+        <a href="/" className="flex items-center gap-2">
           <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary">
-            <Bot className="h-5 w-5 text-primary-foreground" />
+            <Image
+              src="/favicon-32x32.png"
+              alt="iaction logo"
+              width={20}
+              height={20}
+              className="rounded-sm"
+            />
           </div>
           <span className="font-display text-lg font-bold text-foreground">iaction</span>
         </a>
@@ -78,12 +85,15 @@ export function Navbar() {
                 <ThemeToggle />
               </div>
               <Button asChild size="sm">
-                <a href="#contacto" onClick={() => setMobileOpen(false)}>{t.nav.contact}</a>
+                {/* biome-ignore lint/a11y/useValidAnchor: in-page section link inside Button asChild */}
+                <a href="#contacto" onClick={() => setMobileOpen(false)}>
+                  {t.nav.contact}
+                </a>
               </Button>
             </div>
           </nav>
         </div>
       )}
     </header>
-  )
+  );
 }
