@@ -48,9 +48,10 @@ export function ProcessSection() {
 
           {t.process.steps.map((step, index) => {
             const Icon = icons[index];
+            const iconKey = Icon.displayName ?? Icon.name;
             return (
               <div
-                key={step.title}
+                key={`process-step-${iconKey}`}
                 data-animate
                 className="opacity-0 relative flex flex-col items-center text-center"
                 style={{ animationDelay: `${index * 150}ms` }}

@@ -46,9 +46,10 @@ export function ServicesSection() {
         <div className="grid gap-6 md:grid-cols-3">
           {t.services.items.map((service, index) => {
             const Icon = icons[index];
+            const iconKey = Icon.displayName ?? Icon.name;
             return (
               <Card
-                key={service.title}
+                key={`service-${iconKey}`}
                 data-animate
                 className="opacity-0 group border-border/60 bg-card transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
                 style={{ animationDelay: `${index * 120}ms` }}

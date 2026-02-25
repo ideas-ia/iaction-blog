@@ -47,9 +47,10 @@ export function SolutionsSection() {
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {t.solutions.items.map((solution, index) => {
             const Icon = icons[index];
+            const iconKey = Icon.displayName ?? Icon.name;
             return (
               <Card
-                key={solution.title}
+                key={`solution-${iconKey}`}
                 data-animate
                 className="group border-border/60 bg-card opacity-0 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
                 style={{ animationDelay: `${index * 100}ms` }}
