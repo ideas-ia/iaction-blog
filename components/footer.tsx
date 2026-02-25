@@ -6,7 +6,7 @@ import { useI18n } from "@/lib/i18n-context"
 const socials = [
   { icon: Linkedin, href: "#", label: "LinkedIn" },
   { icon: Github, href: "#", label: "GitHub" },
-  { icon: Mail, href: "mailto:hola@flowgic.com", label: "Email" },
+  { icon: Mail, href: "mailto:hola@iaction.com", label: "Email" },
 ]
 
 export function Footer() {
@@ -28,7 +28,7 @@ export function Footer() {
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
               <Bot className="h-4 w-4 text-primary-foreground" />
             </div>
-            <span className="font-display text-base font-bold text-foreground">flowgic</span>
+            <span className="font-display text-base font-bold text-foreground">iaction</span>
           </a>
           <p className="text-center text-sm text-muted-foreground md:text-left">
             {t.footer.tagline}
@@ -64,7 +64,7 @@ export function Footer() {
       <div className="border-t border-border">
         <div className="mx-auto max-w-6xl px-6 py-4">
           <p className="text-center text-xs text-muted-foreground">
-            &copy; {new Date().getFullYear()} flowgic. {t.footer.copyright}
+            &copy; {new Date().getFullYear()} iaction. {t.footer.copyright}
           </p>
         </div>
       </div>
