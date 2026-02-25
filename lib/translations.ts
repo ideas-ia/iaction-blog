@@ -10,8 +10,8 @@ export const translations = {
       results: "Resultados",
       faq: "FAQ",
       contact: "Contacto",
-      openMenu: "Abrir menu",
-      closeMenu: "Cerrar menu",
+      openMenu: "Abrir menú",
+      closeMenu: "Cerrar menú",
     },
 
     // Hero
@@ -21,31 +21,31 @@ export const translations = {
       titleAccent: "Inteligencia Artificial",
       description:
         "Desarrollo soluciones de IA personalizadas que reducen costos operativos hasta un 70% y transforman la manera en que operas.",
-      ctaQuote: "Solicitar Cotizacion",
+      ctaQuote: "Solicitar Cotización",
       ctaConsult: "Agendar Consulta Gratis",
-      ctaCases: "Ver Casos de Exito",
+      ctaCases: "Ver Casos de Éxito",
       microcopy: "Respuesta en menos de 24 horas \u00b7 Sin compromisos",
     },
 
     // Problems
     problems: {
-      label: "Problema & Solucion",
-      title: "Los desafios que resolvemos para tu negocio",
+      label: "Problema & Solución",
+      title: "Los desafíos que resolvemos para tu negocio",
       items: [
         {
           title: "Procesos Manuales que Consumen Tiempo",
           description:
-            "Tu equipo dedica horas a tareas repetitivas que podrian automatizarse, reduciendo la productividad y aumentando el margen de error humano.",
+            "Tu equipo dedica horas a tareas repetitivas que podrían automatizarse, reduciendo la productividad y aumentando el margen de error humano.",
         },
         {
           title: "Costos Operativos Elevados",
           description:
-            "Operaciones ineficientes generan gastos innecesarios. La falta de automatizacion impacta directamente en tu rentabilidad y competitividad.",
+            "Operaciones ineficientes generan gastos innecesarios. La falta de automatización impacta directamente en tu rentabilidad y competitividad.",
         },
         {
           title: "Datos Sin Aprovechar",
           description:
-            "Tu negocio genera datos valiosos que no se analizan. Sin IA, pierdes insights clave para tomar decisiones estrategicas informadas.",
+            "Tu negocio genera datos valiosos que no se analizan. Sin IA, pierdes insights clave para tomar decisiones estratégicas informadas.",
         },
       ],
     },
@@ -56,30 +56,30 @@ export const translations = {
       title: "Soluciones de IA para cada necesidad",
       items: [
         {
-          title: "Automatizacion de Procesos",
+          title: "Automatización de Procesos",
           benefits: [
             "Flujos de trabajo inteligentes",
-            "Integracion con tus herramientas actuales",
-            "Reduccion de errores hasta un 95%",
-            "Escalabilidad automatica",
+            "Integración con tus herramientas actuales",
+            "Reducción de errores hasta un 95%",
+            "Escalabilidad automática",
           ],
         },
         {
           title: "Chatbots e Interfaces IA",
           benefits: [
-            "Atencion al cliente 24/7",
+            "Atención al cliente 24/7",
             "Procesamiento de lenguaje natural",
-            "Integracion multicanal",
+            "Integración multicanal",
             "Aprendizaje continuo",
           ],
         },
         {
-          title: "Analisis de Datos con IA",
+          title: "Análisis de Datos con IA",
           benefits: [
             "Dashboards predictivos",
             "Insights automatizados",
             "Reportes inteligentes",
-            "Deteccion de patrones ocultos",
+            "Detección de patrones ocultos",
           ],
         },
       ],
@@ -88,49 +88,49 @@ export const translations = {
     // Solutions
     solutions: {
       label: "Soluciones",
-      title: "Proyectos que ya estan generando resultados",
+      title: "Proyectos que ya están generando resultados",
       subtitle: "Soluciones implementadas para distintas industrias y necesidades de negocio.",
       items: [
         {
-          title: "Transcripcion, Categorizacion y Analisis de Atenciones",
+          title: "Transcripción, Categorización y Análisis de Atenciones",
           description:
-            "Procesamos automaticamente interacciones de contact center, chatbots y atencion presencial. Extraemos insights, clasificamos temas y generamos reportes accionables con IA.",
+            "Procesamos automáticamente interacciones de contact center, chatbots y atención presencial. Extraemos insights, clasificamos temas y generamos reportes accionables con IA.",
           tags: ["Contact Center", "Chatbots", "Presencial"],
         },
         {
-          title: "Catalogos y Menus de Tiendas",
+          title: "Catálogos y Menús de Tiendas",
           description:
-            "Digitalizacion y gestion inteligente de catalogos de productos y menus. Actualizacion automatica, categorizacion y busqueda optimizada con procesamiento de lenguaje natural.",
+            "Digitalización y gestión inteligente de catálogos de productos y menús. Actualización automática, categorización y búsqueda optimizada con procesamiento de lenguaje natural.",
           tags: ["E-commerce", "Retail", "Restaurantes"],
         },
         {
           title: "Sitios Web",
           description:
-            "Desarrollo de sitios web modernos e inteligentes con integraciones de IA. Landing pages, plataformas y aplicaciones web optimizadas para conversion y rendimiento.",
+            "Desarrollo de sitios web modernos e inteligentes con integraciones de IA. Landing pages, plataformas y aplicaciones web optimizadas para conversión y rendimiento.",
           tags: ["Landing Pages", "Plataformas", "Web Apps"],
         },
         {
-          title: "Reportes y Analitica",
+          title: "Reportes y Analítica",
           description:
-            "Dashboards automatizados, reportes inteligentes y analitica predictiva. Transformamos datos brutos en decisiones estrategicas con modelos de IA avanzados.",
-          tags: ["Dashboards", "Prediccion", "KPIs"],
+            "Dashboards automatizados, reportes inteligentes y analítica predictiva. Transformamos datos brutos en decisiones estratégicas con modelos de IA avanzados.",
+          tags: ["Dashboards", "Predicción", "KPIs"],
         },
         {
           title: "Integraciones",
           description:
             "Conectamos tus sistemas y herramientas existentes con soluciones de IA. APIs, webhooks, automatizaciones entre plataformas y flujos de datos en tiempo real.",
-          tags: ["APIs", "Webhooks", "Automatizacion"],
+          tags: ["APIs", "Webhooks", "Automatización"],
         },
         {
           title: "Redes Sociales",
           description:
-            "Gestion inteligente de redes sociales con IA. Generacion de contenido, programacion automatica de publicaciones, analisis de engagement y estrategias de crecimiento basadas en datos.",
-          tags: ["Contenido IA", "Programacion", "Analitica Social"],
+            "Gestión inteligente de redes sociales con IA. Generación de contenido, programación automática de publicaciones, análisis de engagement y estrategias de crecimiento basadas en datos.",
+          tags: ["Contenido IA", "Programación", "Analítica Social"],
         },
         {
           title: "SEO e Inteligencia de Contenido",
           description:
-            "Optimizacion para motores de busqueda potenciada por IA. Investigacion de keywords, auditorias tecnicas, generacion de contenido optimizado y seguimiento de posicionamiento automatizado.",
+            "Optimización para motores de búsqueda potenciada por IA. Investigación de keywords, auditorías técnicas, generación de contenido optimizado y seguimiento de posicionamiento automatizado.",
           tags: ["Keywords", "Contenido SEO", "Posicionamiento"],
         },
       ],
@@ -139,65 +139,65 @@ export const translations = {
     // Process
     process: {
       label: "Proceso",
-      title: "De la idea a la solucion en 4 pasos",
+      title: "De la idea a la solución en 4 pasos",
       steps: [
         {
-          title: "Consultoria",
+          title: "Consultoría",
           description:
-            "Analizamos tu negocio, identificamos oportunidades de automatizacion y definimos objetivos claros.",
+            "Analizamos tu negocio, identificamos oportunidades de automatización y definimos objetivos claros.",
         },
         {
-          title: "Diseno",
+          title: "Diseño",
           description:
-            "Creamos la arquitectura de la solucion, seleccionamos las tecnologias optimas y planificamos cada fase.",
+            "Creamos la arquitectura de la solución, seleccionamos las tecnologías óptimas y planificamos cada fase.",
         },
         {
-          title: "Implementacion",
+          title: "Implementación",
           description:
-            "Desarrollamos e integramos la solucion con tus sistemas actuales, con pruebas rigurosas en cada etapa.",
+            "Desarrollamos e integramos la solución con tus sistemas actuales, con pruebas rigurosas en cada etapa.",
         },
         {
           title: "Soporte",
           description:
-            "Monitoreo continuo, optimizacion y soporte tecnico para asegurar que todo funcione al maximo rendimiento.",
+            "Monitoreo continuo, optimización y soporte técnico para asegurar que todo funcione al máximo rendimiento.",
         },
       ],
     },
 
     // Tech Marquee
     tech: {
-      label: "Tecnologias",
+      label: "Tecnologías",
       title: "Herramientas que impulsan nuestras soluciones",
     },
 
     // Results
     results: {
       label: "Resultados",
-      title: "Resultados que hablan por si solos",
+      title: "Resultados que hablan por sí solos",
       metrics: [
         {
           metric: "70%",
-          label: "Reduccion de costos operativos",
+          label: "Reducción de costos operativos",
           description:
-            "Empresa de logistica automatizo su procesamiento de pedidos, eliminando cuellos de botella manuales.",
+            "Empresa de logística automatizó su procesamiento de pedidos, eliminando cuellos de botella manuales.",
         },
         {
           metric: "120h",
           label: "Horas ahorradas al mes",
           description:
-            "Startup fintech automatizo su onboarding de clientes, pasando de 45 minutos a 3 minutos por cliente.",
+            "Startup fintech automatizó su onboarding de clientes, pasando de 45 minutos a 3 minutos por cliente.",
         },
         {
           metric: "3x",
-          label: "Aumento en conversion",
+          label: "Aumento en conversión",
           description:
-            "E-commerce implemento chatbot IA que triplico la tasa de conversion en atencion al cliente.",
+            "E-commerce implementó chatbot IA que triplicó la tasa de conversión en atención al cliente.",
         },
       ],
       testimonial:
-        "La automatizacion que implementaron transformo completamente nuestras operaciones. Lo que antes tomaba dias ahora se resuelve en minutos. Una inversion que se pago sola en el primer mes.",
-      testimonialAuthor: "Carlos Mendez",
-      testimonialRole: "CEO, LogiTech Solutions",
+        "La automatización que implementaron transformó completamente nuestras operaciones. Lo que antes tomaba días ahora se resuelve en minutos. Una inversión que se pagó sola en el primer mes.",
+      testimonialAuthor: "Carlos Méndez",
+      testimonialRole: "",
     },
 
     // FAQ
@@ -206,29 +206,29 @@ export const translations = {
       title: "Preguntas Frecuentes",
       items: [
         {
-          question: "Cuanto cuesta desarrollar una automatizacion con IA?",
+          question: "¿Cuánto cuesta desarrollar una automatización con IA?",
           answer:
-            "Cada proyecto es unico, por lo que los costos varian segun la complejidad y alcance. Ofrezco una consulta inicial gratuita donde analizo tus necesidades y proporciono una cotizacion detallada sin compromisos. Los proyectos tipicos van desde soluciones simples hasta integraciones empresariales completas.",
+            "Cada proyecto es único, por lo que los costos varían según la complejidad y alcance. Ofrezco una consulta inicial gratuita donde analizo tus necesidades y proporciono una cotización detallada sin compromisos. Los proyectos típicos van desde soluciones simples hasta integraciones empresariales completas.",
         },
         {
-          question: "Cuanto tiempo toma implementar una solucion?",
+          question: "¿Cuánto tiempo toma implementar una solución?",
           answer:
-            "Los tiempos dependen del alcance del proyecto. Automatizaciones simples pueden estar listas en 1-2 semanas, mientras que proyectos mas complejos toman de 4 a 8 semanas. Siempre entrego un cronograma detallado antes de comenzar.",
+            "Los tiempos dependen del alcance del proyecto. Automatizaciones simples pueden estar listas en 1-2 semanas, mientras que proyectos más complejos toman de 4 a 8 semanas. Siempre entrego un cronograma detallado antes de comenzar.",
         },
         {
-          question: "Que tecnologias utilizas para las automatizaciones?",
+          question: "¿Qué tecnologías utilizas para las automatizaciones?",
           answer:
-            "Trabajo con las tecnologias mas avanzadas del mercado: OpenAI, Claude, LangChain, Python, Node.js, APIs REST, bases de datos y plataformas de integracion como Zapier y Make. Selecciono la mejor combinacion segun tus necesidades especificas.",
+            "Trabajo con las tecnologías más avanzadas del mercado: OpenAI, Claude, LangChain, Python, Node.js, APIs REST, bases de datos y plataformas de integración como Zapier y Make. Selecciono la mejor combinación según tus necesidades específicas.",
         },
         {
-          question: "Necesito conocimientos tecnicos para usar las soluciones?",
+          question: "¿Necesito conocimientos técnicos para usar las soluciones?",
           answer:
-            "No. Todas las soluciones que desarrollo estan disenadas para ser intuitivas y faciles de usar. Ademas, proporciono documentacion completa, capacitacion y soporte continuo para que tu equipo pueda operar todo sin problemas.",
+            "No. Todas las soluciones que desarrollo están diseñadas para ser intuitivas y fáciles de usar. Además, proporciono documentación completa, capacitación y soporte continuo para que tu equipo pueda operar todo sin problemas.",
         },
         {
-          question: "Ofrecen soporte despues de la implementacion?",
+          question: "¿Ofrecen soporte después de la implementación?",
           answer:
-            "Si, ofrezco planes de soporte que incluyen monitoreo, mantenimiento, actualizaciones y optimizacion continua. Mi objetivo es que las soluciones sigan funcionando al maximo rendimiento a largo plazo.",
+            "Sí, ofrezco planes de soporte que incluyen monitoreo, mantenimiento, actualizaciones y optimización continua. Mi objetivo es que las soluciones sigan funcionando al máximo rendimiento a largo plazo.",
         },
       ],
     },
@@ -236,20 +236,20 @@ export const translations = {
     // Contact
     contact: {
       badge: "Comienza Hoy",
-      title: "Listo para Automatizar?",
+      title: "¿Listo para automatizar?",
       subtitle:
-        "Cuentame sobre tu proyecto y te envio una propuesta personalizada en menos de 24 horas.",
-      successTitle: "Mensaje Enviado",
-      successMessage: "Te contactare en menos de 24 horas. Gracias por tu interes.",
+        "Cuéntanos sobre tu proyecto y te enviaremos una propuesta personalizada en menos de 24 horas.",
+      successTitle: "Mensaje enviado",
+      successMessage: "Te contactaré en menos de 24 horas. Gracias por tu interés.",
       nameLabel: "Nombre",
       namePlaceholder: "Tu nombre completo",
       emailLabel: "Email",
       emailPlaceholder: "tu@email.com",
-      phoneLabel: "Telefono",
+      phoneLabel: "Teléfono",
       phonePlaceholder: "+52 55 1234 5678",
       messageLabel: "Mensaje",
       messagePlaceholder: "Describe brevemente tu proyecto o necesidad...",
-      submitButton: "Solicitar Cotizacion Ahora",
+      submitButton: "Solicitar Cotización Ahora",
       disclaimer: "Sin compromisos \u00b7 Respuesta garantizada en 24 horas",
     },
 
@@ -462,7 +462,7 @@ export const translations = {
       testimonial:
         "The automation they implemented completely transformed our operations. What used to take days is now resolved in minutes. An investment that paid for itself in the first month.",
       testimonialAuthor: "Carlos Mendez",
-      testimonialRole: "CEO, LogiTech Solutions",
+      testimonialRole: "",
     },
 
     // FAQ

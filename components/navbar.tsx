@@ -11,6 +11,7 @@ import { useI18n } from "@/lib/i18n-context";
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { t } = useI18n();
+  const mobileMenuId = "mobile-navigation";
 
   const navLinks = [
     { label: t.nav.services, href: "#servicios" },
@@ -23,7 +24,11 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-lg">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <a href="/" className="flex items-center gap-2">
+        <a
+          href="/"
+          className="flex items-center gap-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+          aria-label="iaction inicio"
+        >
           <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary">
             <Image
               src="/android-icon-192x192.png"
@@ -36,12 +41,12 @@ export function Navbar() {
           <span className="font-display text-lg font-bold text-foreground">iaction</span>
         </a>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav aria-label="Navegación principal" className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              className="rounded-md text-sm font-medium text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             >
               {link.label}
             </a>
@@ -58,22 +63,31 @@ export function Navbar() {
 
         <button
           type="button"
-          className="md:hidden"
+          className="rounded-md p-1 md:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? t.nav.closeMenu : t.nav.openMenu}
+          aria-expanded={mobileOpen}
+          aria-controls={mobileMenuId}
         >
-          {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {mobileOpen ? (
+            <X className="h-6 w-6" aria-hidden="true" />
+          ) : (
+            <Menu className="h-6 w-6" aria-hidden="true" />
+          )}
         </button>
       </div>
 
       {mobileOpen && (
-        <div className="border-t border-border bg-background px-6 pb-4 pt-2 md:hidden">
-          <nav className="flex flex-col gap-3">
+        <div
+          id={mobileMenuId}
+          className="border-t border-border bg-background px-6 pb-4 pt-2 md:hidden"
+        >
+          <nav aria-label="Navegación móvil" className="flex flex-col gap-3">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                className="rounded-md py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                 onClick={() => setMobileOpen(false)}
               >
                 {link.label}

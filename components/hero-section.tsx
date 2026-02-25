@@ -20,6 +20,15 @@ export function HeroSection() {
   const { t } = useI18n();
 
   useEffect(() => {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) {
+      const elements = sectionRef.current?.querySelectorAll("[data-animate]");
+      elements?.forEach((el) => {
+        el.classList.remove("opacity-0");
+      });
+      return;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
@@ -76,7 +85,7 @@ export function HeroSection() {
               className="opacity-0 mt-8 flex flex-col gap-3 sm:flex-row sm:items-center"
               style={{ animationDelay: "300ms" }}
             >
-              <Button asChild size="lg" className="animate-pulse gap-2 text-base">
+              <Button asChild size="lg" className="motion-safe:animate-pulse gap-2 text-base">
                 <a href="#contacto">
                   <MessageSquare className="h-4 w-4" />
                   {t.hero.ctaQuote}

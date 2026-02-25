@@ -58,7 +58,7 @@ export default function Page() {
     <div className="flex min-h-screen flex-col">
       <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       <Navbar />
-      <main className="flex-1">
+      <main id="main-content" className="flex-1" tabIndex={-1}>
         <HeroSection />
         <ProblemsSection />
         <ServicesSection />
