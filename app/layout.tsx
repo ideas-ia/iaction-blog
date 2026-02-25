@@ -33,6 +33,11 @@ export const metadata: Metadata = {
   creator: siteConfig.name,
   publisher: siteConfig.name,
   category: "technology",
+  verification: {
+    other: {
+      "msvalidate.01": "08C9CF09819095D8C18ED3DAD09678BA",
+    },
+  },
   robots: {
     index: true,
     follow: true,
