@@ -125,3 +125,10 @@
 .marquee-scroll-reverse:hover {
   animation-play-state: paused;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-scroll,
+  .marquee-scroll-reverse {
+    animation: none;
+  }
+}

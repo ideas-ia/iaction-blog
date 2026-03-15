@@ -1,37 +1,70 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import type { IconType } from "react-icons";
 import { useI18n } from "@/lib/i18n-context";
+import {
+  SiGooglecloud,
+  SiDocker,
+  SiN8N,
+  SiPython,
+  SiJavascript,
+  SiOpenai,
+  SiGooglegemini,
+  SiClaude,
+  SiPostgresql,
+  SiReact,
+  SiNextdotjs,
+  SiTypescript,
+  SiTensorflow,
+  SiLangchain,
+  SiSupabase,
+  SiVercel,
+} from "react-icons/si";
 
-const technologies = [
-  { name: "Google Cloud", abbr: "GCP" },
-  { name: "Docker", abbr: "Docker" },
-  { name: "n8n", abbr: "n8n" },
-  { name: "Python", abbr: "Python" },
-  { name: "JavaScript", abbr: "JS" },
-  { name: "ChatGPT", abbr: "ChatGPT" },
-  { name: "Gemini", abbr: "Gemini" },
-  { name: "Claude", abbr: "Claude" },
-  { name: "PostgreSQL", abbr: "PostgreSQL" },
-  { name: "React", abbr: "React" },
-  { name: "Next.js", abbr: "Next.js" },
-  { name: "TypeScript", abbr: "TS" },
-  { name: "TensorFlow", abbr: "TensorFlow" },
-  { name: "LangChain", abbr: "LangChain" },
-  { name: "Supabase", abbr: "Supabase" },
-  { name: "Vercel", abbr: "Vercel" },
+const technologies: { name: string; Icon: IconType; color: string }[] = [
+  { name: "Google Cloud", Icon: SiGooglecloud, color: "#4285F4" },
+  { name: "Docker", Icon: SiDocker, color: "#2496ED" },
+  { name: "n8n", Icon: SiN8N, color: "#EA4B71" },
+  { name: "Python", Icon: SiPython, color: "#3776AB" },
+  { name: "JavaScript", Icon: SiJavascript, color: "#F7DF1E" },
+  { name: "ChatGPT", Icon: SiOpenai, color: "#412991" },
+  { name: "Gemini", Icon: SiGooglegemini, color: "#8E75B2" },
+  { name: "Claude", Icon: SiClaude, color: "#D97757" },
+  { name: "PostgreSQL", Icon: SiPostgresql, color: "#4169E1" },
+  { name: "React", Icon: SiReact, color: "#61DAFB" },
+  { name: "Next.js", Icon: SiNextdotjs, color: "#000000" },
+  { name: "TypeScript", Icon: SiTypescript, color: "#3178C6" },
+  { name: "TensorFlow", Icon: SiTensorflow, color: "#FF6F00" },
+  { name: "LangChain", Icon: SiLangchain, color: "#1C3C3C" },
+  { name: "Supabase", Icon: SiSupabase, color: "#3FCF8E" },
+  { name: "Vercel", Icon: SiVercel, color: "#000000" },
 ];
 
-function TechLogo({ name, abbr }: { name: string; abbr: string }) {
+function TechLogo({
+  name,
+  Icon,
+  color,
+  "aria-hidden": ariaHidden,
+}: {
+  name: string;
+  Icon: IconType;
+  color: string;
+  "aria-hidden"?: boolean | "true";
+}) {
   return (
-    <div className="flex shrink-0 items-center gap-3 rounded-xl border border-border/60 bg-card px-6 py-4 transition-colors duration-300 hover:border-primary/30 hover:bg-primary/5">
-      <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10">
-        <span className="font-display text-xs font-bold text-primary">
-          {abbr.slice(0, 2).toUpperCase()}
-        </span>
+    <li
+      className="flex shrink-0 items-center gap-3 rounded-xl border border-border/60 bg-card px-6 py-4 transition-colors duration-300 hover:border-primary/30 hover:bg-primary/5"
+      aria-hidden={ariaHidden}
+    >
+      <div
+        className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10"
+        aria-hidden="true"
+      >
+        <Icon size={22} style={{ color }} />
       </div>
       <span className="text-sm font-medium text-foreground">{name}</span>
-    </div>
+    </li>
   );
 }
 
@@ -76,28 +109,30 @@ export function TechMarqueeSection() {
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-background to-transparent" />
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-background to-transparent" />
 
-        <div className="mb-4 flex marquee-scroll">
-          <div className="flex shrink-0 gap-4 pr-4">
-            {technologies.map((tech) => (
-              <TechLogo key={tech.name} name={tech.name} abbr={tech.abbr} />
-            ))}
-          </div>
-          <div className="flex shrink-0 gap-4 pr-4" aria-hidden="true">
-            {technologies.map((tech) => (
-              <TechLogo key={`dup-${tech.name}`} name={tech.name} abbr={tech.abbr} />
-            ))}
-          </div>
-        </div>
+        {/* First row: semantically meaningful list, duplicates hidden from AT */}
+        <ul
+          className="mb-4 flex gap-4 marquee-scroll list-none p-0"
+          aria-label="Tecnologías utilizadas"
+        >
+          {technologies.map((tech) => (
+            <TechLogo key={tech.name} name={tech.name} Icon={tech.Icon} color={tech.color} />
+          ))}
+          {/* Duplicate for seamless loop — hidden from screen readers */}
+          {technologies.map((tech) => (
+            <TechLogo key={`dup-${tech.name}`} name={tech.name} Icon={tech.Icon} color={tech.color} aria-hidden />
+          ))}
+        </ul>
 
-        <div className="flex marquee-scroll-reverse">
+        {/* Second row: purely decorative, hidden from assistive technologies */}
+        <div className="flex marquee-scroll-reverse" aria-hidden="true">
           <div className="flex shrink-0 gap-4 pr-4">
             {[...technologies].reverse().map((tech) => (
-              <TechLogo key={tech.name} name={tech.name} abbr={tech.abbr} />
+              <TechLogo key={tech.name} name={tech.name} Icon={tech.Icon} color={tech.color} />
             ))}
           </div>
-          <div className="flex shrink-0 gap-4 pr-4" aria-hidden="true">
+          <div className="flex shrink-0 gap-4 pr-4">
             {[...technologies].reverse().map((tech) => (
-              <TechLogo key={`dup-${tech.name}`} name={tech.name} abbr={tech.abbr} />
+              <TechLogo key={`dup-${tech.name}`} name={tech.name} Icon={tech.Icon} color={tech.color} />
             ))}
           </div>
         </div>

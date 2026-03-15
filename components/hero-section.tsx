@@ -85,7 +85,7 @@ export function HeroSection() {
               className="opacity-0 mt-8 flex flex-col gap-3 sm:flex-row sm:items-center"
               style={{ animationDelay: "300ms" }}
             >
-              <Button asChild size="lg" className="motion-safe:animate-pulse gap-2 text-base">
+              <Button asChild size="lg" className="motion-safe:hover:animate-pulse motion-safe:focus-visible:animate-pulse gap-2 text-base">
                 <a href="#contacto">
                   <MessageSquare className="h-4 w-4" />
                   {t.hero.ctaQuote}
@@ -129,14 +129,14 @@ export function HeroSection() {
             className="opacity-0 relative hidden lg:flex lg:items-center lg:justify-center"
             style={{ animationDelay: "300ms" }}
           >
-            <div className="relative h-80 w-80">
+            <div className="relative h-80 w-80" aria-hidden="true">
               <div className="absolute left-1/2 top-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-primary/10 ring-1 ring-primary/20">
                 <BrainCircuit className="h-10 w-10 text-primary" />
               </div>
               <div className="absolute left-1/2 top-0 flex h-14 w-14 -translate-x-1/2 items-center justify-center rounded-xl border border-border bg-card shadow-sm overflow-hidden">
                 <Image
                   src="/android-icon-48x48.png"
-                  alt="iaction logo"
+                  alt=""
                   width={40}
                   height={40}
                   className="h-10 w-10 object-cover"

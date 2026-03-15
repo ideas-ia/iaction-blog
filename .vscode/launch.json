@@ -1,0 +1,50 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      // Inicia el servidor y adjunta el debugger automáticamente a todos
+      // los procesos Node que Next.js crea (workers de Turbopack incluidos).
+      "name": "Next.js: servidor",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "pnpm dev",
+      "cwd": "${workspaceFolder}",
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      // Úsalo cuando el servidor ya está corriendo con `pnpm debug`
+      // (que incluye NODE_OPTIONS=--inspect).
+      "name": "Next.js: adjuntar a servidor activo",
+      "type": "node",
+      "request": "attach",
+      "port": 9229,
+      "restart": true,
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      // Abre Chrome con el debugger conectado al frontend.
+      // Requiere que el servidor ya esté corriendo.
+      "name": "Next.js: cliente (Chrome)",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}",
+      "sourceMaps": true
+    },
+    {
+      // Inicia el servidor y abre Chrome con el debugger —
+      // breakpoints funcionan tanto en server-side como en client-side.
+      "name": "Next.js: full-stack",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "pnpm dev",
+      "cwd": "${workspaceFolder}",
+      "skipFiles": ["<node_internals>/**"],
+      "serverReadyAction": {
+        "pattern": "Local:\\s+http://localhost:(\\d+)",
+        "uriFormat": "http://localhost:%s",
+        "action": "debugWithChrome"
+      }
+    }
+  ]
+}

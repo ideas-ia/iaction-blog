@@ -1,8 +1,8 @@
 "use client";
 
 import { Menu, X } from "lucide-react";
-import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { ThemeLogo } from "@/components/theme-logo";
 import { LanguageToggle } from "@/components/language-toggle";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
@@ -12,6 +12,16 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { t } = useI18n();
   const mobileMenuId = "mobile-navigation";
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const prevOpenRef = useRef(false);
+
+  // Restore focus to hamburger button when mobile menu closes
+  useEffect(() => {
+    if (prevOpenRef.current && !mobileOpen) {
+      menuButtonRef.current?.focus();
+    }
+    prevOpenRef.current = mobileOpen;
+  }, [mobileOpen]);
 
   const navLinks = [
     { label: t.nav.services, href: "#servicios" },
@@ -29,16 +39,8 @@ export function Navbar() {
           className="flex items-center gap-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           aria-label="iaction inicio"
         >
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary">
-            <Image
-              src="/android-icon-48x48.png"
-              alt="iaction logo"
-              width={20}
-              height={20}
-              className="rounded-sm"
-              sizes="20px"
-              priority
-            />
+          <div className="flex h-9 w-9 items-center justify-center rounded-lg overflow-hidden">
+            <ThemeLogo size={36} />
           </div>
           <span className="font-display text-lg font-bold text-foreground">iaction</span>
         </a>
@@ -64,6 +66,7 @@ export function Navbar() {
         </div>
 
         <button
+          ref={menuButtonRef}
           type="button"
           className="rounded-md p-1 md:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           onClick={() => setMobileOpen(!mobileOpen)}
@@ -82,20 +85,20 @@ export function Navbar() {
       {mobileOpen && (
         <div
           id={mobileMenuId}
-          className="border-t border-border bg-background px-6 pb-4 pt-2 md:hidden"
+          className="animate-in fade-in-0 slide-in-from-top-1 duration-200 border-t border-border bg-background px-6 pb-4 pt-2 md:hidden"
         >
-          <nav aria-label="Navegación móvil" className="flex flex-col gap-3">
+          <nav aria-label="Navegación móvil" className="flex flex-col gap-1">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="rounded-md py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                className="rounded-md px-2 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                 onClick={() => setMobileOpen(false)}
               >
                 {link.label}
               </a>
             ))}
-            <div className="mt-3 flex items-center justify-between">
+            <div className="mt-3 flex items-center justify-between border-t border-border pt-3">
               <div className="flex items-center gap-2">
                 <LanguageToggle />
                 <ThemeToggle />

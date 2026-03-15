@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import Script from "next/script";
 import type React from "react";
+import { FaviconSwitcher } from "@/components/favicon-switcher";
 import { ThemeProvider } from "@/components/theme-provider";
 import { I18nProvider } from "@/lib/i18n-context";
 import { siteConfig } from "@/lib/site";
@@ -66,7 +67,7 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "iaction | Automatiza tu Negocio con Inteligencia Artificial",
     description: siteConfig.description,
     images: [siteConfig.ogImage],
@@ -74,6 +75,7 @@ export const metadata: Metadata = {
   manifest: "/manifest.json",
   icons: {
     icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
       { url: "/favicon.ico" },
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
@@ -108,6 +110,7 @@ export const metadata: Metadata = {
     "msapplication-config": "/browserconfig.xml",
     "msapplication-TileColor": "#ffffff",
     "msapplication-TileImage": "/ms-icon-144x144.png",
+    "color-scheme": "light dark",
   },
 };
 
@@ -167,6 +170,7 @@ gtag('config', '${gaId}');`}
           enableSystem
           disableTransitionOnChange
         >
+          <FaviconSwitcher />
           <I18nProvider>{children}</I18nProvider>
         </ThemeProvider>
       </body>

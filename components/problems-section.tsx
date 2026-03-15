@@ -55,7 +55,7 @@ export function ProblemsSection() {
                 style={{ animationDelay: `${index * 120}ms` }}
               >
                 <CardContent className="p-6 lg:p-8">
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10" aria-hidden="true">
                     <Icon className="h-6 w-6 text-primary" />
                   </div>
                   <h3 className="mb-2 font-display text-lg font-semibold text-foreground">

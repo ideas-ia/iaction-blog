@@ -1,13 +1,13 @@
 "use client";
 
 import { Github, Linkedin, Mail } from "lucide-react";
-import Image from "next/image";
+import { ThemeLogo } from "@/components/theme-logo";
 import { useI18n } from "@/lib/i18n-context";
 
 const socials = [
   { icon: Linkedin, href: "#", label: "LinkedIn" },
   { icon: Github, href: "#", label: "GitHub" },
-  { icon: Mail, href: "mailto:meeh.dev#hola-iaction@gmail.com", label: "Email" },
+  { icon: Mail, href: "mailto:meeh.dev@gmail.com", label: "Email" },
 ];
 
 export function Footer() {
@@ -31,14 +31,7 @@ export function Footer() {
             aria-label="iaction inicio"
           >
             <div className="flex h-8 w-8 items-center justify-center rounded-lg overflow-hidden">
-              <Image
-                src="/android-icon-48x48.png"
-                alt="iaction logo"
-                width={32}
-                height={32}
-                className="h-8 w-8 object-cover"
-                sizes="32px"
-              />
+              <ThemeLogo size={32} />
             </div>
             <span className="font-display text-base font-bold text-foreground">iaction</span>
           </a>

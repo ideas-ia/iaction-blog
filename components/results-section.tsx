@@ -54,7 +54,7 @@ export function ResultsSection() {
                 style={{ animationDelay: `${index * 120}ms` }}
               >
                 <CardContent className="p-6 lg:p-8">
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10" aria-hidden="true">
                     <Icon className="h-6 w-6 text-primary" />
                   </div>
                   <p className="font-display text-4xl font-bold text-primary">{item.metric}</p>
@@ -76,8 +76,8 @@ export function ResultsSection() {
           style={{ animationDelay: "400ms" }}
         >
           <div className="flex flex-col items-center text-center">
-            <Quote className="mb-4 h-8 w-8 text-primary/30" />
-            <blockquote className="max-w-2xl text-lg leading-relaxed text-foreground">
+            <Quote className="mb-4 h-8 w-8 text-primary/30" aria-hidden="true" />
+            <blockquote className="max-w-2xl text-lg leading-relaxed text-foreground" aria-label={`Testimonio de ${t.results.testimonialAuthor}`}>
               {'"'}
               {t.results.testimonial}
               {'"'}

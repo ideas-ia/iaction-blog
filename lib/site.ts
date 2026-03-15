@@ -3,7 +3,7 @@ export const siteConfig = {
   description:
     "Desarrollo de soluciones de IA personalizadas que reducen costos operativos hasta un 70%. Automatizaciones, chatbots e integraciones inteligentes.",
   locale: "es_ES",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://iaction.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.iaction.cl",
   ogImage: "/android-icon-192x192.png",
   email: "meeh.dev@gmail.com",
   keywords: [
