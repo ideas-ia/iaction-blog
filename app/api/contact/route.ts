@@ -78,7 +78,14 @@ export async function POST(req: NextRequest) {
   }
 
   const { name, email, phone, message } = result.data;
-  const to = process.env.CONTACT_EMAIL ?? "meeh.dev@gmail.com";
+  const to = process.env.CONTACT_EMAIL;
+  if (!to) {
+    console.error("[contact] CONTACT_EMAIL no está configurado");
+    return NextResponse.json(
+      { error: "Error de configuración del servidor." },
+      { status: 500 }
+    );
+  }
 
   // If no API key, log in dev and return success
   if (!resend) {
