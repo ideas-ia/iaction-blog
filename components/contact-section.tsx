@@ -54,13 +54,15 @@ export function ContactSection() {
     return () => observer.disconnect();
   }, []);
 
+  const honeypotRef = useRef<HTMLInputElement>(null);
+
   async function onSubmit(data: ContactFormValues) {
     setServerError(null);
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, website: honeypotRef.current?.value }),
       });
 
       if (!res.ok) {
@@ -126,6 +128,16 @@ export function ContactSection() {
             noValidate
             aria-label={t.contact.title}
           >
+            {/* Honeypot anti-bots: invisible para personas y lectores de pantalla */}
+            <input
+              ref={honeypotRef}
+              type="text"
+              name="website"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              className="absolute -left-[9999px] h-0 w-0 opacity-0"
+            />
             <div className="grid gap-5 sm:grid-cols-2">
               <div className="flex flex-col gap-2">
                 <Label htmlFor="name">{t.contact.nameLabel}</Label>
