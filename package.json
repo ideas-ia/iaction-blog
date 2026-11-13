@@ -73,14 +73,5 @@
     "tailwindcss": "^4.3.5",
     "typescript": "7.0.2"
   },
-  "pnpm": {
-    "overrides": {
-      "@types/react": "19.2.7",
-      "@types/react-dom": "19.2.3"
-    },
-    "onlyBuiltDependencies": [
-      "@biomejs/biome"
-    ]
-  },
   "packageManager": "pnpm@12.9.1"
 }
