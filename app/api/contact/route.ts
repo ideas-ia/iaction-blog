@@ -5,10 +5,18 @@ import { z } from "zod";
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
 const contactSchema = z.object({
-  name: z.string().min(2, "El nombre debe tener al menos 2 caracteres").max(100).trim(),
+  // Sin caracteres de control: el nombre va en el asunto del correo.
+  name: z
+    .string()
+    .trim()
+    .min(2, "El nombre debe tener al menos 2 caracteres")
+    .max(100)
+    .transform((s) => s.replace(/\p{Cc}+/gu, " ")),
   email: z.string().email("Email inválido").max(200).trim().toLowerCase(),
   phone: z.string().max(50).trim().optional(),
   message: z.string().min(10, "El mensaje debe tener al menos 10 caracteres").max(2000).trim(),
+  // Honeypot: campo oculto que solo rellenan los bots.
+  website: z.string().max(200).optional(),
 });
 
 // In-memory rate limiter: max 3 requests per IP per hour
@@ -18,6 +26,12 @@ const RATE_WINDOW_MS = 60 * 60 * 1000; // 1 hour
 
 function isRateLimited(ip: string): boolean {
   const now = Date.now();
+  // Evita que el mapa crezca sin tope con muchas IPs distintas.
+  if (rateLimitMap.size > 1000) {
+    for (const [key, value] of rateLimitMap) {
+      if (now > value.resetAt) rateLimitMap.delete(key);
+    }
+  }
   const entry = rateLimitMap.get(ip);
 
   if (!entry || now > entry.resetAt) {
@@ -43,6 +57,12 @@ function escapeHtml(str: string): string {
 }
 
 export async function POST(req: NextRequest) {
+  // Solo se aceptan envíos desde el propio sitio.
+  const origin = req.headers.get("origin");
+  if (!origin || URL.parse(origin)?.host !== req.headers.get("host")) {
+    return NextResponse.json({ error: "Origen no permitido." }, { status: 403 });
+  }
+
   // Extract IP for rate limiting
   const ip =
     req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
@@ -73,7 +93,11 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const { name, email, phone, message } = result.data;
+  const { name, email, phone, message, website } = result.data;
+  if (website) {
+    // Bot detectado: se responde éxito para no darle pistas.
+    return NextResponse.json({ ok: true });
+  }
   const to = process.env.CONTACT_EMAIL;
   if (!to) {
     console.error("[contact] CONTACT_EMAIL no está configurado");
