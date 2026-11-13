@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
 import { useTheme } from "next-themes";
+import { useEffect } from "react";
 
 export function FaviconSwitcher() {
   const { resolvedTheme } = useTheme();

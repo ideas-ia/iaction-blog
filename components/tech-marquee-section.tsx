@@ -2,25 +2,25 @@
 
 import { useEffect, useRef } from "react";
 import type { IconType } from "react-icons";
-import { useI18n } from "@/lib/i18n-context";
+import { RiOpenaiFill } from "react-icons/ri";
 import {
-  SiGooglecloud,
-  SiDocker,
-  SiN8N,
-  SiPython,
-  SiJavascript,
-  SiOpenai,
-  SiGooglegemini,
   SiClaude,
-  SiPostgresql,
-  SiReact,
-  SiNextdotjs,
-  SiTypescript,
-  SiTensorflow,
+  SiDocker,
+  SiGooglecloud,
+  SiGooglegemini,
+  SiJavascript,
   SiLangchain,
+  SiN8N,
+  SiNextdotjs,
+  SiPostgresql,
+  SiPython,
+  SiReact,
   SiSupabase,
+  SiTensorflow,
+  SiTypescript,
   SiVercel,
 } from "react-icons/si";
+import { useI18n } from "@/lib/i18n-context";
 
 const technologies: { name: string; Icon: IconType; color: string }[] = [
   { name: "Google Cloud", Icon: SiGooglecloud, color: "#4285F4" },
@@ -28,7 +28,7 @@ const technologies: { name: string; Icon: IconType; color: string }[] = [
   { name: "n8n", Icon: SiN8N, color: "#EA4B71" },
   { name: "Python", Icon: SiPython, color: "#3776AB" },
   { name: "JavaScript", Icon: SiJavascript, color: "#F7DF1E" },
-  { name: "ChatGPT", Icon: SiOpenai, color: "#412991" },
+  { name: "ChatGPT", Icon: RiOpenaiFill, color: "#412991" },
   { name: "Gemini", Icon: SiGooglegemini, color: "#8E75B2" },
   { name: "Claude", Icon: SiClaude, color: "#D97757" },
   { name: "PostgreSQL", Icon: SiPostgresql, color: "#4169E1" },
@@ -106,8 +106,8 @@ export function TechMarqueeSection() {
       </div>
 
       <div data-animate className="relative opacity-0" style={{ animationDelay: "200ms" }}>
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-background to-transparent" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-background to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-linear-to-r from-background to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-linear-to-l from-background to-transparent" />
 
         {/* First row: semantically meaningful list, duplicates hidden from AT */}
         <ul
@@ -119,7 +119,13 @@ export function TechMarqueeSection() {
           ))}
           {/* Duplicate for seamless loop — hidden from screen readers */}
           {technologies.map((tech) => (
-            <TechLogo key={`dup-${tech.name}`} name={tech.name} Icon={tech.Icon} color={tech.color} aria-hidden />
+            <TechLogo
+              key={`dup-${tech.name}`}
+              name={tech.name}
+              Icon={tech.Icon}
+              color={tech.color}
+              aria-hidden
+            />
           ))}
         </ul>
 
@@ -132,7 +138,12 @@ export function TechMarqueeSection() {
           </div>
           <div className="flex shrink-0 gap-4 pr-4">
             {[...technologies].reverse().map((tech) => (
-              <TechLogo key={`dup-${tech.name}`} name={tech.name} Icon={tech.Icon} color={tech.color} />
+              <TechLogo
+                key={`dup-${tech.name}`}
+                name={tech.name}
+                Icon={tech.Icon}
+                color={tech.color}
+              />
             ))}
           </div>
         </div>

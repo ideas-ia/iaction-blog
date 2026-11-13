@@ -27,10 +27,10 @@ export function ThemeToggle() {
       aria-checked={isDark}
       aria-label={isDark ? t.theme.switchToLight : t.theme.switchToDark}
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="relative inline-flex h-8 w-14 shrink-0 cursor-pointer items-center rounded-full border border-border bg-muted transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+      className="relative inline-flex h-8 w-14 shrink-0 cursor-pointer items-center rounded-full border border-border bg-muted transition-colors focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
     >
       <span
-        className={`pointer-events-none flex h-6 w-6 items-center justify-center rounded-full bg-primary shadow-sm transition-transform ${
+        className={`pointer-events-none flex h-6 w-6 items-center justify-center rounded-full bg-primary shadow-xs transition-transform ${
           isDark ? "translate-x-7" : "translate-x-0.5"
         }`}
       >

@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { type NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import { z } from "zod";
 
@@ -8,11 +8,7 @@ const contactSchema = z.object({
   name: z.string().min(2, "El nombre debe tener al menos 2 caracteres").max(100).trim(),
   email: z.string().email("Email inválido").max(200).trim().toLowerCase(),
   phone: z.string().max(50).trim().optional(),
-  message: z
-    .string()
-    .min(10, "El mensaje debe tener al menos 10 caracteres")
-    .max(2000)
-    .trim(),
+  message: z.string().min(10, "El mensaje debe tener al menos 10 caracteres").max(2000).trim(),
 });
 
 // In-memory rate limiter: max 3 requests per IP per hour
@@ -78,7 +74,11 @@ export async function POST(req: NextRequest) {
   }
 
   const { name, email, phone, message } = result.data;
-  const to = process.env.CONTACT_EMAIL ?? "meeh.dev@gmail.com";
+  const to = process.env.CONTACT_EMAIL;
+  if (!to) {
+    console.error("[contact] CONTACT_EMAIL no está configurado");
+    return NextResponse.json({ error: "Error de configuración del servidor." }, { status: 500 });
+  }
 
   // If no API key, log in dev and return success
   if (!resend) {
