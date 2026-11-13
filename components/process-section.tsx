@@ -44,7 +44,7 @@ export function ProcessSection() {
         </div>
 
         <div className="relative grid gap-8 md:grid-cols-4">
-          <div className="absolute left-0 right-0 top-[3.5rem] hidden h-px bg-border md:block" />
+          <div className="absolute left-0 right-0 top-14 hidden h-px bg-border md:block" />
 
           {t.process.steps.map((step, index) => {
             const Icon = icons[index];
@@ -56,7 +56,7 @@ export function ProcessSection() {
                 className="opacity-0 relative flex flex-col items-center text-center"
                 style={{ animationDelay: `${index * 150}ms` }}
               >
-                <div className="relative z-10 mb-5 flex h-16 w-16 items-center justify-center rounded-2xl border border-border bg-card shadow-sm transition-all duration-300 hover:shadow-md">
+                <div className="relative z-10 mb-5 flex h-16 w-16 items-center justify-center rounded-2xl border border-border bg-card shadow-xs transition-all duration-300 hover:shadow-md">
                   <Icon className="h-7 w-7 text-primary" />
                 </div>
                 <span className="mb-1 text-xs font-bold uppercase tracking-widest text-primary">

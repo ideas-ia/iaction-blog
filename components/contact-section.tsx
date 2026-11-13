@@ -81,7 +81,7 @@ export function ContactSection() {
 
   return (
     <section ref={sectionRef} id="contacto" className="relative overflow-hidden py-20 lg:py-28">
-      <div className="absolute inset-0 bg-primary/[0.03]" />
+      <div className="absolute inset-0 bg-primary/3" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_120%,hsl(var(--primary)/0.08),transparent)]" />
 
       <div className="relative mx-auto max-w-3xl px-6">
@@ -101,7 +101,7 @@ export function ContactSection() {
           {submitted ? (
             <div
               data-animate
-              className="opacity-0 animate-fade-in-up rounded-2xl border border-primary/20 bg-card p-10 text-center shadow-sm"
+              className="opacity-0 animate-fade-in-up rounded-2xl border border-primary/20 bg-card p-10 text-center shadow-xs"
             >
               <div
                 className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-primary/10"
@@ -120,7 +120,7 @@ export function ContactSection() {
         {!submitted && (
           <form
             data-animate
-            className="opacity-0 rounded-2xl border border-border/60 bg-card p-6 shadow-sm sm:p-8 lg:p-10"
+            className="opacity-0 rounded-2xl border border-border/60 bg-card p-6 shadow-xs sm:p-8 lg:p-10"
             style={{ animationDelay: "150ms" }}
             onSubmit={handleSubmit(onSubmit)}
             noValidate
@@ -222,9 +222,7 @@ export function ContactSection() {
               )}
             </Button>
 
-            <p className="mt-3 text-center text-xs text-muted-foreground">
-              {t.contact.disclaimer}
-            </p>
+            <p className="mt-3 text-center text-xs text-muted-foreground">{t.contact.disclaimer}</p>
           </form>
         )}
       </div>

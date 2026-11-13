@@ -50,7 +50,7 @@ export function HeroSection() {
 
   return (
     <section ref={sectionRef} className="relative overflow-hidden py-20 lg:py-32">
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border)/0.3)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border)/0.3)_1px,transparent_1px)] bg-[size:4rem_4rem]" />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border)/0.3)_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border)/0.3)_1px,transparent_1px)] bg-size-[4rem_4rem]" />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_-20%,hsl(var(--primary)/0.08),transparent)]" />
 
       <div className="relative mx-auto max-w-6xl px-6">
@@ -85,7 +85,11 @@ export function HeroSection() {
               className="opacity-0 mt-8 flex flex-col gap-3 sm:flex-row sm:items-center"
               style={{ animationDelay: "300ms" }}
             >
-              <Button asChild size="lg" className="motion-safe:hover:animate-pulse motion-safe:focus-visible:animate-pulse gap-2 text-base">
+              <Button
+                asChild
+                size="lg"
+                className="motion-safe:hover:animate-pulse motion-safe:focus-visible:animate-pulse gap-2 text-base"
+              >
                 <a href="#contacto">
                   <MessageSquare className="h-4 w-4" />
                   {t.hero.ctaQuote}
@@ -133,7 +137,7 @@ export function HeroSection() {
               <div className="absolute left-1/2 top-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-primary/10 ring-1 ring-primary/20">
                 <BrainCircuit className="h-10 w-10 text-primary" />
               </div>
-              <div className="absolute left-1/2 top-0 flex h-14 w-14 -translate-x-1/2 items-center justify-center rounded-xl border border-border bg-card shadow-sm overflow-hidden">
+              <div className="absolute left-1/2 top-0 flex h-14 w-14 -translate-x-1/2 items-center justify-center rounded-xl border border-border bg-card shadow-xs overflow-hidden">
                 <Image
                   src="/android-icon-48x48.png"
                   alt=""
@@ -143,13 +147,13 @@ export function HeroSection() {
                   sizes="40px"
                 />
               </div>
-              <div className="absolute right-0 top-1/2 flex h-14 w-14 -translate-y-1/2 items-center justify-center rounded-xl border border-border bg-card shadow-sm">
+              <div className="absolute right-0 top-1/2 flex h-14 w-14 -translate-y-1/2 items-center justify-center rounded-xl border border-border bg-card shadow-xs">
                 <Sparkles className="h-6 w-6 text-primary" />
               </div>
-              <div className="absolute bottom-0 left-1/2 flex h-14 w-14 -translate-x-1/2 items-center justify-center rounded-xl border border-border bg-card shadow-sm">
+              <div className="absolute bottom-0 left-1/2 flex h-14 w-14 -translate-x-1/2 items-center justify-center rounded-xl border border-border bg-card shadow-xs">
                 <Zap className="h-6 w-6 text-primary" />
               </div>
-              <div className="absolute left-0 top-1/2 flex h-14 w-14 -translate-y-1/2 items-center justify-center rounded-xl border border-border bg-card shadow-sm">
+              <div className="absolute left-0 top-1/2 flex h-14 w-14 -translate-y-1/2 items-center justify-center rounded-xl border border-border bg-card shadow-xs">
                 <Network className="h-6 w-6 text-primary" />
               </div>
               <svg

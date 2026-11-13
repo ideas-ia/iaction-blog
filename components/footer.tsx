@@ -1,6 +1,7 @@
 "use client";
 
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
+import { FaGithub as Github, FaLinkedin as Linkedin } from "react-icons/fa6";
 import { ThemeLogo } from "@/components/theme-logo";
 import { useI18n } from "@/lib/i18n-context";
 
@@ -27,7 +28,7 @@ export function Footer() {
         <div className="flex flex-col items-center gap-4 md:items-start">
           <a
             href="/"
-            className="flex items-center gap-2 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+            className="flex items-center gap-2 rounded-md focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             aria-label="iaction inicio"
           >
             <div className="flex h-8 w-8 items-center justify-center rounded-lg overflow-hidden">
@@ -48,7 +49,7 @@ export function Footer() {
             <a
               key={link.href}
               href={link.href}
-              className="rounded-md text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+              className="rounded-md text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             >
               {link.label}
             </a>
@@ -60,7 +61,7 @@ export function Footer() {
             <a
               key={social.label}
               href={social.href}
-              className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+              className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
               aria-label={social.label}
             >
               <social.icon className="h-4 w-4" aria-hidden="true" />
