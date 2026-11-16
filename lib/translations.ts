@@ -251,6 +251,14 @@ export const translations = {
       messagePlaceholder: "Describe brevemente tu proyecto o necesidad...",
       submitButton: "Solicitar Cotización Ahora",
       disclaimer: "Sin compromisos \u00b7 Respuesta garantizada en 24 horas",
+      assistantTitle: "Asistente IA (en tu dispositivo)",
+      assistantIntro: "Cuéntame qué quieres automatizar y te ayudo a armar el mensaje.",
+      assistantPlaceholder: "Ej: respondemos 200 correos de clientes al día a mano",
+      assistantSend: "Enviar",
+      assistantUse: "Usar en el mensaje",
+      assistantUndo: "Deshacer",
+      assistantDownloading: "Preparando el modelo de IA…",
+      assistantError: "El asistente no pudo responder. Puedes escribir el mensaje directamente.",
     },
 
     // Footer
@@ -516,6 +524,14 @@ export const translations = {
       messagePlaceholder: "Briefly describe your project or need...",
       submitButton: "Request a Quote Now",
       disclaimer: "No commitment \u00b7 Guaranteed response within 24 hours",
+      assistantTitle: "AI assistant (on your device)",
+      assistantIntro: "Tell me what you want to automate and I'll help you write the message.",
+      assistantPlaceholder: "E.g. we answer 200 customer emails a day by hand",
+      assistantSend: "Send",
+      assistantUse: "Use in message",
+      assistantUndo: "Undo",
+      assistantDownloading: "Preparing the AI model…",
+      assistantError: "The assistant couldn't respond. You can write the message directly.",
     },
 
     // Footer
