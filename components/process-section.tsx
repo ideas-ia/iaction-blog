@@ -1,75 +1,28 @@
-"use client";
+import { SectionHeader } from "@/components/section-header";
+import type { Translations } from "@/lib/translations";
 
-import { HeadphonesIcon, PenTool, Rocket, Search } from "lucide-react";
-import { useEffect, useRef } from "react";
-import { useI18n } from "@/lib/i18n-context";
-
-const icons = [Search, PenTool, Rocket, HeadphonesIcon];
-const numbers = ["01", "02", "03", "04"];
-
-export function ProcessSection() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const { t } = useI18n();
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-fade-in-up");
-          }
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    const elements = sectionRef.current?.querySelectorAll("[data-animate]");
-    elements?.forEach((el) => {
-      observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
+export function ProcessSection({ t }: { t: Translations }) {
   return (
-    <section ref={sectionRef} id="proceso" className="bg-secondary/50 py-20 lg:py-28">
+    <section id="proceso" className="border-t border-border py-20 lg:py-28">
       <div className="mx-auto max-w-6xl px-6">
-        <div data-animate className="opacity-0 mb-12 text-center lg:mb-16">
-          <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-primary">
-            {t.process.label}
-          </p>
-          <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            <span className="text-balance">{t.process.title}</span>
-          </h2>
-        </div>
+        <SectionHeader label={t.process.label} title={t.process.title} />
 
-        <div className="relative grid gap-8 md:grid-cols-4">
-          <div className="absolute left-0 right-0 top-14 hidden h-px bg-border md:block" />
-
-          {t.process.steps.map((step, index) => {
-            const Icon = icons[index];
-            const iconKey = Icon.displayName ?? Icon.name;
-            return (
-              <div
-                key={`process-step-${iconKey}`}
-                data-animate
-                className="opacity-0 relative flex flex-col items-center text-center"
-                style={{ animationDelay: `${index * 150}ms` }}
+        <ol className="reveal grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+          {t.process.steps.map((step, index) => (
+            <li key={step.title} className="border-t border-border pt-6">
+              <span
+                className="mb-4 block font-display text-3xl font-semibold tabular-nums text-primary"
+                aria-hidden="true"
               >
-                <div className="relative z-10 mb-5 flex h-16 w-16 items-center justify-center rounded-2xl border border-border bg-card shadow-xs transition-all duration-300 hover:shadow-md">
-                  <Icon className="h-7 w-7 text-primary" />
-                </div>
-                <span className="mb-1 text-xs font-bold uppercase tracking-widest text-primary">
-                  {numbers[index]}
-                </span>
-                <h3 className="mb-2 font-display text-lg font-semibold text-foreground">
-                  {step.title}
-                </h3>
-                <p className="text-sm leading-relaxed text-muted-foreground">{step.description}</p>
-              </div>
-            );
-          })}
-        </div>
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <h3 className="mb-2 font-display text-lg font-semibold text-foreground">
+                {step.title}
+              </h3>
+              <p className="leading-relaxed text-muted-foreground">{step.description}</p>
+            </li>
+          ))}
+        </ol>
       </div>
     </section>
   );

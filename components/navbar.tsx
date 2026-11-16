@@ -45,7 +45,7 @@ export function Navbar() {
           <span className="font-display text-lg font-bold text-foreground">iaction</span>
         </a>
 
-        <nav aria-label="Navegación principal" className="hidden items-center gap-8 md:flex">
+        <nav aria-label="Navegación principal" className="hidden items-center gap-8 lg:flex">
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -57,7 +57,7 @@ export function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 md:flex">
+        <div className="hidden items-center gap-3 lg:flex">
           <LanguageToggle />
           <ThemeToggle />
           <Button asChild size="sm">
@@ -68,7 +68,7 @@ export function Navbar() {
         <button
           ref={menuButtonRef}
           type="button"
-          className="rounded-md p-1 md:hidden focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+          className="flex h-11 w-11 items-center justify-center rounded-md lg:hidden focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? t.nav.closeMenu : t.nav.openMenu}
           aria-expanded={mobileOpen}
@@ -85,7 +85,7 @@ export function Navbar() {
       {mobileOpen && (
         <div
           id={mobileMenuId}
-          className="animate-in fade-in-0 slide-in-from-top-1 duration-200 border-t border-border bg-background px-6 pb-4 pt-2 md:hidden"
+          className="animate-in fade-in-0 slide-in-from-top-1 duration-200 border-t border-border bg-background px-6 pb-4 pt-2 lg:hidden"
         >
           <nav aria-label="Navegación móvil" className="flex flex-col gap-1">
             {navLinks.map((link) => (

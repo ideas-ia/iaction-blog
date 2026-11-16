@@ -2,10 +2,13 @@
 
 @custom-variant dark (&:is(.dark *));
 
-@theme {
+/* inline: --font-inter se define en <body>, no en :root, así que debe resolverse donde se usa */
+@theme inline {
   --font-sans: var(--font-inter), system-ui, sans-serif;
-  --font-display: var(--font-space-grotesk), system-ui, sans-serif;
+  --font-display: var(--font-inter), system-ui, sans-serif;
+}
 
+@theme {
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
 
@@ -55,8 +58,6 @@
 
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
-  --animate-fade-in-up: fade-in-up 0.6s ease-out forwards;
-  --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 
   @keyframes accordion-down {
     from {
@@ -72,25 +73,6 @@
     }
     to {
       height: 0;
-    }
-  }
-  @keyframes fade-in-up {
-    from {
-      opacity: 0;
-      transform: translateY(24px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  @keyframes pulse {
-    0%,
-    100% {
-      box-shadow: 0 0 0 0 hsl(215 90% 52% / 0.4);
-    }
-    50% {
-      box-shadow: 0 0 0 8px hsl(215 90% 52% / 0);
     }
   }
 }
@@ -125,19 +107,19 @@
     --card-foreground: 220 20% 10%;
     --popover: 0 0% 100%;
     --popover-foreground: 220 20% 10%;
-    --primary: 215 90% 52%;
+    --primary: 215 90% 45%;
     --primary-foreground: 0 0% 100%;
     --secondary: 210 15% 94%;
     --secondary-foreground: 220 20% 10%;
     --muted: 210 15% 94%;
-    --muted-foreground: 220 10% 46%;
+    --muted-foreground: 220 10% 42%;
     --accent: 210 15% 94%;
     --accent-foreground: 220 20% 10%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
     --border: 214 20% 90%;
     --input: 214 20% 90%;
-    --ring: 215 90% 52%;
+    --ring: 215 90% 45%;
     --chart-1: 215 90% 52%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
@@ -160,19 +142,19 @@
     --card-foreground: 210 20% 96%;
     --popover: 220 18% 10%;
     --popover-foreground: 210 20% 96%;
-    --primary: 215 90% 56%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 215 90% 62%;
+    --primary-foreground: 220 20% 6%;
     --secondary: 220 15% 16%;
     --secondary-foreground: 210 20% 96%;
     --muted: 220 15% 16%;
-    --muted-foreground: 220 10% 54%;
+    --muted-foreground: 220 10% 60%;
     --accent: 220 15% 16%;
     --accent-foreground: 210 20% 96%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
     --border: 220 15% 18%;
     --input: 220 15% 18%;
-    --ring: 215 90% 56%;
+    --ring: 215 90% 62%;
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
@@ -198,47 +180,21 @@
   }
 }
 
-/* Infinite marquee scroll */
-@keyframes marquee-left {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
+/* Entrada al hacer scroll, solo CSS. Sin soporte o con movimiento reducido, el contenido se ve fijo. */
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
   }
 }
 
-@keyframes marquee-right {
-  0% {
-    transform: translateX(-50%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-.marquee-scroll {
-  animation: marquee-left 40s linear infinite;
-  width: max-content;
-}
-
-.marquee-scroll:hover {
-  animation-play-state: paused;
-}
-
-.marquee-scroll-reverse {
-  animation: marquee-right 40s linear infinite;
-  width: max-content;
-}
-
-.marquee-scroll-reverse:hover {
-  animation-play-state: paused;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .marquee-scroll,
-  .marquee-scroll-reverse {
-    animation: none;
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 200px;
+    }
   }
 }
 
@@ -246,4 +202,77 @@
 .cv-auto {
   content-visibility: auto;
   contain-intrinsic-size: auto none auto 800px;
+}
+
+/* Fondo "IA": dos halos que derivan lento sobre una trama de puntos. Solo CSS, solo transform/opacity. */
+/* Posición del foco: por defecto arriba a la derecha; cursor-glow.tsx la mueve al cursor. */
+@property --mx {
+  syntax: "<length-percentage>";
+  inherits: true;
+  initial-value: 75%;
+}
+
+@property --my {
+  syntax: "<length-percentage>";
+  inherits: true;
+  initial-value: 35%;
+}
+
+.ai-bg {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  transition:
+    --mx 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+    --my 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.ai-bg::before,
+.ai-bg::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.ai-bg::before {
+  inset: -20%;
+  background:
+    radial-gradient(40% 50% at 72% 30%, hsl(var(--primary) / 0.14), transparent 70%),
+    radial-gradient(35% 45% at 28% 72%, hsl(255 80% 62% / 0.08), transparent 70%);
+  animation: ai-drift 28s ease-in-out infinite alternate;
+}
+
+.ai-bg::after {
+  inset: 0;
+  background-image:
+    radial-gradient(circle at var(--mx) var(--my), hsl(var(--primary) / 0.12), transparent 22rem),
+    radial-gradient(hsl(var(--foreground) / 0.16) 1px, transparent 1px);
+  background-size:
+    auto,
+    24px 24px;
+  mask-image: radial-gradient(28rem 24rem at var(--mx) var(--my), #000, transparent);
+  animation: ai-breathe 9s ease-in-out infinite alternate;
+}
+
+@keyframes ai-drift {
+  from {
+    transform: translate3d(-4%, -2%, 0) scale(1);
+  }
+  to {
+    transform: translate3d(4%, 3%, 0) scale(1.12);
+  }
+}
+
+@keyframes ai-breathe {
+  from {
+    opacity: 0.55;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ai-bg::before,
+  .ai-bg::after {
+    animation: none;
+  }
 }

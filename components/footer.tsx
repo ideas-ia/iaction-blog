@@ -1,10 +1,8 @@
-"use client";
-
 import { Mail } from "lucide-react";
 import { FaGithub as Github, FaLinkedin as Linkedin } from "react-icons/fa6";
 import { ThemeLogo } from "@/components/theme-logo";
-import { useI18n } from "@/lib/i18n-context";
 import { siteConfig } from "@/lib/site";
+import type { Translations } from "@/lib/translations";
 
 const socials = [
   { icon: Linkedin, href: "#", label: "LinkedIn" },
@@ -16,9 +14,7 @@ const socials = [
   },
 ];
 
-export function Footer() {
-  const { t } = useI18n();
-
+export function Footer({ t }: { t: Translations }) {
   const links = [
     { label: t.nav.services, href: "#servicios" },
     { label: t.nav.process, href: "#proceso" },
@@ -28,7 +24,7 @@ export function Footer() {
   ];
 
   return (
-    <footer className="border-t border-border bg-card">
+    <footer className="border-t border-border">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-8 px-6 py-12 md:flex-row md:justify-between">
         <div className="flex flex-col items-center gap-4 md:items-start">
           <a
@@ -39,7 +35,7 @@ export function Footer() {
             <div className="flex h-8 w-8 items-center justify-center rounded-lg overflow-hidden">
               <ThemeLogo size={32} />
             </div>
-            <span className="font-display text-base font-bold text-foreground">iaction</span>
+            <span className="font-display text-base font-semibold text-foreground">iaction</span>
           </a>
           <p className="text-center text-sm text-muted-foreground md:text-left">
             {t.footer.tagline}

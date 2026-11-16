@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Inter } from "next/font/google";
 import Script from "next/script";
 import { FaviconSwitcher } from "@/components/favicon-switcher";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -10,7 +10,6 @@ import { type Locale, translations } from "@/lib/translations";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space-grotesk" });
 const gtmId = process.env.NEXT_PUBLIC_GOOGLE_TAG_MANAGER_ID;
 const gaId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID;
 const shouldLoadGaDirectly = Boolean(gaId && !gtmId);
@@ -151,7 +150,7 @@ gtag('config', '${gaId}');`}
           </>
         ) : null}
       </head>
-      <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} font-sans antialiased`}>
         {gtmId ? (
           <noscript>
             <iframe
