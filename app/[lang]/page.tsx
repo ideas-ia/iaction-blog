@@ -1,35 +1,21 @@
 import dynamic from "next/dynamic";
+import { CursorGlow } from "@/components/cursor-glow";
+import { FaqSection } from "@/components/faq-section";
+import { Footer } from "@/components/footer";
 import { HeroSection } from "@/components/hero-section";
 import { Navbar } from "@/components/navbar";
+import { ProblemsSection } from "@/components/problems-section";
+import { ProcessSection } from "@/components/process-section";
+import { ResultsSection } from "@/components/results-section";
+import { ServicesSection } from "@/components/services-section";
+import { SolutionsSection } from "@/components/solutions-section";
+import { TechMarqueeSection } from "@/components/tech-marquee-section";
 import { siteConfig } from "@/lib/site";
 import { type Locale, translations } from "@/lib/translations";
 
-const ProblemsSection = dynamic(() =>
-  import("@/components/problems-section").then((module) => module.ProblemsSection)
-);
-const ServicesSection = dynamic(() =>
-  import("@/components/services-section").then((module) => module.ServicesSection)
-);
-const SolutionsSection = dynamic(() =>
-  import("@/components/solutions-section").then((module) => module.SolutionsSection)
-);
-const ProcessSection = dynamic(() =>
-  import("@/components/process-section").then((module) => module.ProcessSection)
-);
-const TechMarqueeSection = dynamic(() =>
-  import("@/components/tech-marquee-section").then((module) => module.TechMarqueeSection)
-);
-const ResultsSection = dynamic(() =>
-  import("@/components/results-section").then((module) => module.ResultsSection)
-);
-const FaqSection = dynamic(() =>
-  import("@/components/faq-section").then((module) => module.FaqSection)
-);
 const ContactSection = dynamic(() =>
   import("@/components/contact-section").then((module) => module.ContactSection)
 );
-const Footer = dynamic(() => import("@/components/footer").then((module) => module.Footer));
-
 const buildStructuredData = (lang: Locale) => ({
   "@context": "https://schema.org",
   "@graph": [
@@ -84,41 +70,43 @@ const buildStructuredData = (lang: Locale) => ({
 
 export default async function Page({ params }: PageProps<"/[lang]">) {
   const lang = (await params).lang as Locale;
+  const t = translations[lang];
   return (
     <div className="flex min-h-screen flex-col">
       <script type="application/ld+json">
         {JSON.stringify(buildStructuredData(lang)).replace(/</g, "\\u003c")}
       </script>
       <Navbar />
+      <CursorGlow />
       <main id="main-content" className="flex-1" tabIndex={-1}>
-        <HeroSection />
+        <HeroSection t={t} />
         <div className="cv-auto">
-          <ProblemsSection />
+          <ProblemsSection t={t} />
         </div>
         <div className="cv-auto">
-          <ServicesSection />
+          <ServicesSection t={t} />
         </div>
         <div className="cv-auto">
-          <SolutionsSection />
+          <SolutionsSection t={t} />
         </div>
         <div className="cv-auto">
-          <ProcessSection />
+          <ProcessSection t={t} />
         </div>
         <div className="cv-auto">
-          <TechMarqueeSection />
+          <TechMarqueeSection t={t} />
         </div>
         <div className="cv-auto">
-          <ResultsSection />
+          <ResultsSection t={t} />
         </div>
         <div className="cv-auto">
-          <FaqSection />
+          <FaqSection t={t} />
         </div>
         <div className="cv-auto">
           <ContactSection />
         </div>
       </main>
       <div className="cv-auto">
-        <Footer />
+        <Footer t={t} />
       </div>
     </div>
   );
