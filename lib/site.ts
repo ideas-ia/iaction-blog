@@ -5,7 +5,7 @@ export const siteConfig = {
   locale: "es_ES",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.iaction.cl",
   ogImage: "/android-icon-192x192.png",
-  email: process.env.CONTACT_EMAIL ?? "",
+  email: "contacto@iaction.cl",
   keywords: [
     "automatización con IA",
     "inteligencia artificial para empresas",

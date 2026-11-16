@@ -5,6 +5,7 @@ import { Loader2, Send, Sparkles } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { TriageAssistant } from "@/components/triage-assistant";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -29,6 +30,8 @@ export function ContactSection() {
   const {
     register,
     handleSubmit,
+    getValues,
+    setValue,
     formState: { errors, isSubmitting },
   } = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
@@ -56,7 +59,22 @@ export function ContactSection() {
 
   const honeypotRef = useRef<HTMLInputElement>(null);
 
-  async function onSubmit(data: ContactFormValues) {
+  // WebMCP: si un agente envía el formulario, le devolvemos el resultado como texto.
+  function handleFormSubmit(e: React.FormEvent<HTMLFormElement>) {
+    const ev = e.nativeEvent as SubmitEvent & {
+      agentInvoked?: boolean;
+      respondWith?: (p: Promise<string>) => void;
+    };
+    const result = new Promise<string>((resolve) => {
+      handleSubmit(
+        async (data) => resolve(await onSubmit(data)),
+        (errs) => resolve(`Validation failed: ${Object.keys(errs).join(", ")}`)
+      )(e);
+    });
+    if (ev.agentInvoked) ev.respondWith?.(result);
+  }
+
+  async function onSubmit(data: ContactFormValues): Promise<string> {
     setServerError(null);
     try {
       const res = await fetch("/api/contact", {
@@ -72,12 +90,14 @@ export function ContactSection() {
             ? json.error
             : "Error al enviar el mensaje. Por favor intenta nuevamente."
         );
-        return;
+        return `Error: ${json.error ?? res.status}`;
       }
 
       setSubmitted(true);
+      return "Mensaje enviado. iaction responderá por email.";
     } catch {
       setServerError("Error de conexión. Por favor verifica tu internet e intenta nuevamente.");
+      return "Error de conexión.";
     }
   }
 
@@ -124,8 +144,10 @@ export function ContactSection() {
             data-animate
             className="opacity-0 rounded-2xl border border-border/60 bg-card p-6 shadow-xs sm:p-8 lg:p-10"
             style={{ animationDelay: "150ms" }}
-            onSubmit={handleSubmit(onSubmit)}
+            onSubmit={handleFormSubmit}
             noValidate
+            toolname="contactar-iaction"
+            tooldescription="Envía una consulta a iaction (automatización de procesos con IA en Chile) para pedir una cotización, demo o asesoría. El usuario revisa antes de enviar."
             aria-label={t.contact.title}
           >
             {/* Honeypot anti-bots: invisible para personas y lectores de pantalla */}
@@ -137,6 +159,10 @@ export function ContactSection() {
               autoComplete="off"
               aria-hidden="true"
               className="absolute -left-[9999px] h-0 w-0 opacity-0"
+            />
+            <TriageAssistant
+              getMessage={() => getValues("message") ?? ""}
+              setMessage={(v) => setValue("message", v, { shouldValidate: true })}
             />
             <div className="grid gap-5 sm:grid-cols-2">
               <div className="flex flex-col gap-2">
@@ -194,6 +220,7 @@ export function ContactSection() {
                 id="message"
                 placeholder={t.contact.messagePlaceholder}
                 rows={4}
+                toolparamdescription="Qué proceso quiere automatizar, volumen aproximado y plazo"
                 aria-invalid={!!errors.message}
                 aria-describedby={errors.message ? "message-error" : undefined}
                 {...register("message")}

@@ -4,11 +4,16 @@ import { Mail } from "lucide-react";
 import { FaGithub as Github, FaLinkedin as Linkedin } from "react-icons/fa6";
 import { ThemeLogo } from "@/components/theme-logo";
 import { useI18n } from "@/lib/i18n-context";
+import { siteConfig } from "@/lib/site";
 
 const socials = [
   { icon: Linkedin, href: "#", label: "LinkedIn" },
   { icon: Github, href: "#", label: "GitHub" },
-  { icon: Mail, href: "mailto:meeh.dev@gmail.com", label: "Email" },
+  {
+    icon: Mail,
+    href: `mailto:${siteConfig.email}?subject=${encodeURIComponent("Consulta desde iaction.cl")}&body=${encodeURIComponent("Hola, me gustaría automatizar:\n\nProceso: \nVolumen aproximado: \nPlazo: \n\nNombre y empresa: ")}`,
+    label: "Email",
+  },
 ];
 
 export function Footer() {
