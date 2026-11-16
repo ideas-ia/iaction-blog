@@ -18,7 +18,14 @@ export function proxy(request: NextRequest) {
     url.host = host.slice(sub.length + 1);
     return NextResponse.redirect(url);
   }
-  // Sitio principal: /demos/extractor sirve la misma página.
+  // Sitio principal: en producción /demos/extractor redirige a extractor.iaction.cl;
+  // en local (sin "www.") se sirve directo para poder probar sin subdominios.
+  const slug = url.pathname.split("/")[2];
+  if (host.startsWith("www.") && demoSlugs.includes(slug)) {
+    url.host = host.replace(/^www\./, `${slug}.`);
+    url.pathname = "/";
+    return NextResponse.redirect(url);
+  }
   if (url.pathname.startsWith("/demos/")) {
     url.pathname = `/es${url.pathname}`;
     return NextResponse.rewrite(url);

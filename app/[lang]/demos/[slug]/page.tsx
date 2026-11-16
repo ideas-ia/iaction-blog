@@ -33,7 +33,8 @@ export default async function DemoPage({ params }: PageProps<"/[lang]/demos/[slu
           <a href={`/?demo=${slug}#contacto`}>Solicitar demo o unirme a la lista de espera</a>
         </Button>
         <Button asChild size="lg" variant="ghost">
-          <a href="/">Volver a iaction</a>
+          {/* "/es" y no "/": en el subdominio "/" es la propia demo; "/es" lleva al sitio principal. */}
+          <a href="/es">Volver a iaction</a>
         </Button>
       </div>
     </main>
