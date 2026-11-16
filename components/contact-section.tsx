@@ -1,8 +1,9 @@
 "use client";
 
 import { Loader2, Send } from "lucide-react";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
+import { type DemoSlug, demos } from "@/app/[lang]/demos/demos";
 import { SectionHeader } from "@/components/section-header";
 import { TriageAssistant } from "@/components/triage-assistant";
 import { Button } from "@/components/ui/button";
@@ -32,6 +33,18 @@ export function ContactSection() {
   } = useForm<ContactFormValues>();
 
   const honeypotRef = useRef<HTMLInputElement>(null);
+
+  // Viene desde un subdominio de demo (?demo=slug): prellenar el mensaje de esa demo.
+  useEffect(() => {
+    const slug = new URLSearchParams(window.location.search).get("demo");
+    const demo = slug && slug in demos ? demos[slug as DemoSlug] : null;
+    if (!demo) return;
+    setValue("message", demo.message, { shouldValidate: true });
+    // La sección carga diferida, así que el salto nativo a #contacto falla: llevamos el foco al primer campo.
+    const name = document.getElementById("name");
+    name?.focus({ preventScroll: true });
+    name?.scrollIntoView({ block: "center" });
+  }, [setValue]);
 
   // WebMCP: si un agente envía el formulario, le devolvemos el resultado como texto.
   function handleFormSubmit(e: React.FormEvent<HTMLFormElement>) {
