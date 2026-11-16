@@ -63,20 +63,11 @@ export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Prom
       description,
       siteName: siteConfig.name,
       locale: ogLocale,
-      images: [
-        {
-          url: siteConfig.ogImage,
-          width: 192,
-          height: 192,
-          alt: "Logo de iaction",
-        },
-      ],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: [siteConfig.ogImage],
     },
     manifest: "/manifest.json",
     icons: {
