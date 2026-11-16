@@ -1,10 +1,8 @@
 "use client";
 
-import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2, Send, Sparkles } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 import { TriageAssistant } from "@/components/triage-assistant";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -12,14 +10,12 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useI18n } from "@/lib/i18n-context";
 
-const contactSchema = z.object({
-  name: z.string().min(2).max(100).trim(),
-  email: z.string().email().max(200).trim(),
-  phone: z.string().max(50).trim().optional(),
-  message: z.string().min(10).max(2000).trim(),
-});
+// Validación en el navegador con las reglas de react-hook-form (sin zod: ~33 KB menos).
+// El servidor (/api/contact) vuelve a validar con zod, que es la validación que manda.
+type ContactFormValues = { name: string; email: string; phone?: string; message: string };
 
-type ContactFormValues = z.infer<typeof contactSchema>;
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const minTrim = (min: number, msg: string) => (v?: string) => (v ?? "").trim().length >= min || msg;
 
 export function ContactSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -33,9 +29,7 @@ export function ContactSection() {
     getValues,
     setValue,
     formState: { errors, isSubmitting },
-  } = useForm<ContactFormValues>({
-    resolver: zodResolver(contactSchema),
-  });
+  } = useForm<ContactFormValues>();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -173,7 +167,10 @@ export function ContactSection() {
                   autoComplete="name"
                   aria-invalid={!!errors.name}
                   aria-describedby={errors.name ? "name-error" : undefined}
-                  {...register("name")}
+                  {...register("name", {
+                    validate: minTrim(2, t.contact.errName),
+                    maxLength: { value: 100, message: t.contact.errName },
+                  })}
                 />
                 {errors.name && (
                   <p id="name-error" role="alert" className="text-xs text-destructive">
@@ -190,7 +187,10 @@ export function ContactSection() {
                   autoComplete="email"
                   aria-invalid={!!errors.email}
                   aria-describedby={errors.email ? "email-error" : undefined}
-                  {...register("email")}
+                  {...register("email", {
+                    validate: (v) => EMAIL_RE.test(v.trim()) || t.contact.errEmail,
+                    maxLength: { value: 200, message: t.contact.errEmail },
+                  })}
                 />
                 {errors.email && (
                   <p id="email-error" role="alert" className="text-xs text-destructive">
@@ -210,7 +210,7 @@ export function ContactSection() {
                 type="tel"
                 placeholder={t.contact.phonePlaceholder}
                 autoComplete="tel"
-                {...register("phone")}
+                {...register("phone", { maxLength: 50 })}
               />
             </div>
 
@@ -223,7 +223,10 @@ export function ContactSection() {
                 toolparamdescription="Qué proceso quiere automatizar, volumen aproximado y plazo"
                 aria-invalid={!!errors.message}
                 aria-describedby={errors.message ? "message-error" : undefined}
-                {...register("message")}
+                {...register("message", {
+                  validate: minTrim(10, t.contact.errMessage),
+                  maxLength: { value: 2000, message: t.contact.errMessage },
+                })}
               />
               {errors.message && (
                 <p id="message-error" role="alert" className="text-xs text-destructive">
