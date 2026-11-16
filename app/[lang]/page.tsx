@@ -1,5 +1,6 @@
 import dynamic from "next/dynamic";
 import { CursorGlow } from "@/components/cursor-glow";
+import { DemosSection } from "@/components/demos-section";
 import { FaqSection } from "@/components/faq-section";
 import { Footer } from "@/components/footer";
 import { HeroSection } from "@/components/hero-section";
@@ -97,6 +98,9 @@ export default async function Page({ params }: PageProps<"/[lang]">) {
         </div>
         <div className="cv-auto">
           <ResultsSection t={t} />
+        </div>
+        <div className="cv-auto">
+          <DemosSection />
         </div>
         <div className="cv-auto">
           <FaqSection t={t} />
