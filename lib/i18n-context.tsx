@@ -1,6 +1,7 @@
 "use client";
 
-import { createContext, type ReactNode, useCallback, useContext, useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { createContext, type ReactNode, useCallback, useContext } from "react";
 import { type Locale, type Translations, translations } from "@/lib/translations";
 
 interface I18nContextValue {
@@ -11,34 +12,20 @@ interface I18nContextValue {
 
 const I18nContext = createContext<I18nContextValue | null>(null);
 
-export function I18nProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>("es");
+// El idioma lo define la URL (/ = español, /en = inglés) para que cada versión sea indexable.
+export function I18nProvider({ children, locale }: { children: ReactNode; locale: Locale }) {
+  const router = useRouter();
 
-  useEffect(() => {
-    // Check localStorage first, then browser language
-    const stored = localStorage.getItem("locale") as Locale | null;
-    if (stored && (stored === "es" || stored === "en")) {
-      setLocaleState(stored);
-      return;
-    }
-    const browserLang = navigator.language.toLowerCase();
-    if (browserLang.startsWith("en")) {
-      setLocaleState("en");
-    }
-  }, []);
+  const setLocale = useCallback(
+    (newLocale: Locale) => router.push(newLocale === "en" ? "/en" : "/", { scroll: false }),
+    [router]
+  );
 
-  useEffect(() => {
-    document.documentElement.lang = locale;
-  }, [locale]);
-
-  const setLocale = useCallback((newLocale: Locale) => {
-    setLocaleState(newLocale);
-    localStorage.setItem("locale", newLocale);
-  }, []);
-
-  const t = translations[locale];
-
-  return <I18nContext.Provider value={{ locale, setLocale, t }}>{children}</I18nContext.Provider>;
+  return (
+    <I18nContext.Provider value={{ locale, setLocale, t: translations[locale] }}>
+      {children}
+    </I18nContext.Provider>
+  );
 }
 
 export function useI18n() {

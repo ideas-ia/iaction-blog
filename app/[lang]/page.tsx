@@ -1,8 +1,8 @@
 import dynamic from "next/dynamic";
 import { HeroSection } from "@/components/hero-section";
-import { LazySection } from "@/components/lazy-section";
 import { Navbar } from "@/components/navbar";
 import { siteConfig } from "@/lib/site";
+import { type Locale, translations } from "@/lib/translations";
 
 const ProblemsSection = dynamic(() =>
   import("@/components/problems-section").then((module) => module.ProblemsSection)
@@ -30,7 +30,7 @@ const ContactSection = dynamic(() =>
 );
 const Footer = dynamic(() => import("@/components/footer").then((module) => module.Footer));
 
-const structuredData = {
+const buildStructuredData = (lang: Locale) => ({
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -46,8 +46,8 @@ const structuredData = {
       "@id": `${siteConfig.url}#website`,
       url: siteConfig.url,
       name: siteConfig.name,
-      description: siteConfig.description,
-      inLanguage: ["es", "en"],
+      description: translations[lang].meta.description,
+      inLanguage: lang,
       publisher: {
         "@id": `${siteConfig.url}#organization`,
       },
@@ -56,7 +56,7 @@ const structuredData = {
       "@type": "ProfessionalService",
       "@id": `${siteConfig.url}#service`,
       name: "Servicios de IA para empresas",
-      description: siteConfig.description,
+      description: translations[lang].meta.description,
       url: siteConfig.url,
       provider: {
         "@id": `${siteConfig.url}#organization`,
@@ -69,44 +69,57 @@ const structuredData = {
         "Análisis de datos con IA",
       ],
     },
+    {
+      "@type": "FAQPage",
+      "@id": `${siteConfig.url}${lang === "en" ? "/en" : ""}#faq`,
+      inLanguage: lang,
+      mainEntity: translations[lang].faq.items.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: { "@type": "Answer", text: item.answer },
+      })),
+    },
   ],
-};
+});
 
-export default function Page() {
+export default async function Page({ params }: PageProps<"/[lang]">) {
+  const lang = (await params).lang as Locale;
   return (
     <div className="flex min-h-screen flex-col">
-      <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
+      <script type="application/ld+json">
+        {JSON.stringify(buildStructuredData(lang)).replace(/</g, "\\u003c")}
+      </script>
       <Navbar />
       <main id="main-content" className="flex-1" tabIndex={-1}>
         <HeroSection />
-        <LazySection>
+        <div className="cv-auto">
           <ProblemsSection />
-        </LazySection>
-        <LazySection>
+        </div>
+        <div className="cv-auto">
           <ServicesSection />
-        </LazySection>
-        <LazySection>
+        </div>
+        <div className="cv-auto">
           <SolutionsSection />
-        </LazySection>
-        <LazySection>
+        </div>
+        <div className="cv-auto">
           <ProcessSection />
-        </LazySection>
-        <LazySection>
+        </div>
+        <div className="cv-auto">
           <TechMarqueeSection />
-        </LazySection>
-        <LazySection>
+        </div>
+        <div className="cv-auto">
           <ResultsSection />
-        </LazySection>
-        <LazySection>
+        </div>
+        <div className="cv-auto">
           <FaqSection />
-        </LazySection>
-        <LazySection>
+        </div>
+        <div className="cv-auto">
           <ContactSection />
-        </LazySection>
+        </div>
       </main>
-      <LazySection>
+      <div className="cv-auto">
         <Footer />
-      </LazySection>
+      </div>
     </div>
   );
 }
