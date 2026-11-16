@@ -12,7 +12,12 @@ export function GET() {
 
 > ${t.meta.description}
 
-Consultora chilena de automatización de procesos con IA. Sitio en español (${siteConfig.url}) e inglés (${siteConfig.url}/en).
+Consultora chilena de automatización de procesos con IA.
+
+## Páginas
+- [Sitio en español](${siteConfig.url}/): servicios, soluciones, proceso y preguntas frecuentes
+- [Site in English](${siteConfig.url}/en): English version of the site
+- [Contacto](${siteConfig.url}/#contacto): formulario para solicitar una evaluación
 
 ## Servicios
 ${list(t.services.items.map((s) => `**${s.title}**: ${s.benefits.join("; ")}`))}
@@ -27,8 +32,8 @@ ${list(t.process.steps.map((s) => `**${s.title}**: ${s.description}`))}
 ${t.faq.items.map((f) => `### ${f.question}\n${f.answer}`).join("\n\n")}
 
 ## Contacto
-- Email: ${siteConfig.email}
-- Formulario: ${siteConfig.url}/#contacto
+- [Email](mailto:${siteConfig.email})
+- [Formulario de contacto](${siteConfig.url}/#contacto)
 `;
 
   return new Response(body, { headers: { "Content-Type": "text/markdown; charset=utf-8" } });
