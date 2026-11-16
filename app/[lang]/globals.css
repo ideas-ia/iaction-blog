@@ -241,3 +241,9 @@
     animation: none;
   }
 }
+
+/* Secciones bajo el pliegue: el HTML se entrega completo (SEO/agentes), pero el navegador no las pinta hasta acercarse. */
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto none auto 800px;
+}

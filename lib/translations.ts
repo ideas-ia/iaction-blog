@@ -3,6 +3,13 @@ export type Locale = "es" | "en";
 export const translations = {
   es: {
     // Navbar
+    meta: {
+      title: "iaction | Automatiza tu Negocio con Inteligencia Artificial",
+      description:
+        "Desarrollo de soluciones de IA personalizadas que reducen costos operativos hasta un 70%. Automatizaciones, chatbots e integraciones inteligentes.",
+      ogLocale: "es_CL",
+      skipLink: "Saltar al contenido principal",
+    },
     nav: {
       services: "Servicios",
       solutions: "Soluciones",
@@ -276,6 +283,13 @@ export const translations = {
 
   en: {
     // Navbar
+    meta: {
+      title: "iaction | Automate Your Business with Artificial Intelligence",
+      description:
+        "Custom AI solutions that cut operating costs by up to 70%. Automations, chatbots and smart integrations.",
+      ogLocale: "en_US",
+      skipLink: "Skip to main content",
+    },
     nav: {
       services: "Services",
       solutions: "Solutions",
