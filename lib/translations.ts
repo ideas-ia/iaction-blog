@@ -4,9 +4,9 @@ export const translations = {
   es: {
     // Navbar
     meta: {
-      title: "iaction | Automatiza tu Negocio con Inteligencia Artificial",
+      title: "iaction | Ingeniería de IA, automatización y sistemas inteligentes",
       description:
-        "Desarrollo de soluciones de IA personalizadas que reducen costos operativos hasta un 70%. Automatizaciones, chatbots e integraciones inteligentes.",
+        "Estudio de IA aplicada: diseñamos, desarrollamos e integramos sistemas de inteligencia artificial que automatizan operaciones, conectan plataformas y transforman datos en decisiones.",
       ogLocale: "es_CL",
       skipLink: "Saltar al contenido principal",
     },
@@ -14,7 +14,7 @@ export const translations = {
       services: "Servicios",
       solutions: "Soluciones",
       process: "Proceso",
-      results: "Resultados",
+      demos: "Demos",
       faq: "FAQ",
       contact: "Contacto",
       openMenu: "Abrir menú",
@@ -23,14 +23,13 @@ export const translations = {
 
     // Hero
     hero: {
-      badge: "100% Freelance \u00b7 Soluciones a Medida",
-      titleStart: "Automatiza tu Negocio con ",
-      titleAccent: "Inteligencia Artificial",
+      badge: "Intelligence into Action",
+      titleStart: "Convertimos procesos complejos en ",
+      titleAccent: "soluciones inteligentes",
       description:
-        "Desarrollo soluciones de IA personalizadas que reducen costos operativos hasta un 70% y transforman la manera en que operas.",
+        "Diseñamos, desarrollamos e integramos sistemas de inteligencia artificial que automatizan operaciones, conectan plataformas y transforman datos en decisiones.",
       ctaQuote: "Solicitar Cotización",
-      ctaConsult: "Agendar Consulta Gratis",
-      ctaCases: "Ver Casos de Éxito",
+      ctaCases: "Ver demos",
       microcopy: "Respuesta en menos de 24 horas \u00b7 Sin compromisos",
     },
 
@@ -60,33 +59,36 @@ export const translations = {
     // Services
     services: {
       label: "Servicios",
-      title: "Soluciones de IA para cada necesidad",
+      title: "Tres líneas de trabajo, un foco: IA aplicada",
       items: [
         {
-          title: "Automatización de Procesos",
+          title: "AI Solutions",
+          summary: "Agentes, RAG y asistentes empresariales",
           benefits: [
-            "Flujos de trabajo inteligentes",
-            "Integración con tus herramientas actuales",
-            "Reducción de errores hasta un 95%",
-            "Escalabilidad automática",
+            "Agentes que ejecutan tareas sobre tus sistemas",
+            "Asistentes con RAG sobre tu documentación interna",
+            "Modelos LLM elegidos según costo, latencia y privacidad",
+            "Evaluación y monitoreo de calidad en producción",
           ],
         },
         {
-          title: "Chatbots e Interfaces IA",
+          title: "Intelligent Automation",
+          summary: "Workflows, integraciones y automatización documental",
           benefits: [
-            "Atención al cliente 24/7",
-            "Procesamiento de lenguaje natural",
-            "Integración multicanal",
-            "Aprendizaje continuo",
+            "Extracción de datos de facturas, órdenes de compra y contratos",
+            "Flujos de trabajo que conectan tus plataformas actuales",
+            "Integraciones vía APIs y webhooks",
+            "Revisión humana donde el riesgo lo exige",
           ],
         },
         {
-          title: "Análisis de Datos con IA",
+          title: "Data Intelligence",
+          summary: "Speech analytics, extracción de información y dashboards",
           benefits: [
-            "Dashboards predictivos",
-            "Insights automatizados",
-            "Reportes inteligentes",
-            "Detección de patrones ocultos",
+            "Transcripción y análisis de interacciones de contact center",
+            "Clasificación de temas, motivos y sentimiento",
+            "Dashboards con los indicadores de tu operación",
+            "Reportes accionables generados automáticamente",
           ],
         },
       ],
@@ -95,8 +97,8 @@ export const translations = {
     // Solutions
     solutions: {
       label: "Soluciones",
-      title: "Proyectos que ya están generando resultados",
-      subtitle: "Soluciones implementadas para distintas industrias y necesidades de negocio.",
+      title: "Dónde aplicamos IA",
+      subtitle: "Los tipos de proyectos que diseñamos e implementamos para empresas.",
       items: [
         {
           title: "Transcripción, Categorización y Análisis de Atenciones",
@@ -105,16 +107,16 @@ export const translations = {
           tags: ["Contact Center", "Chatbots", "Presencial"],
         },
         {
-          title: "Catálogos y Menús de Tiendas",
+          title: "Procesamiento Documental",
           description:
-            "Digitalización y gestión inteligente de catálogos de productos y menús. Actualización automática, categorización y búsqueda optimizada con procesamiento de lenguaje natural.",
-          tags: ["E-commerce", "Retail", "Restaurantes"],
+            "Extraemos RUT, montos, fechas e ítems de facturas, órdenes de compra, cotizaciones y contratos, y los cargamos directo en tus sistemas.",
+          tags: ["Facturas", "Contratos", "OCR + LLM"],
         },
         {
-          title: "Sitios Web",
+          title: "Asistentes y Agentes Empresariales",
           description:
-            "Desarrollo de sitios web modernos e inteligentes con integraciones de IA. Landing pages, plataformas y aplicaciones web optimizadas para conversión y rendimiento.",
-          tags: ["Landing Pages", "Plataformas", "Web Apps"],
+            "Asistentes que responden con la información de tu empresa (RAG) y agentes que ejecutan tareas sobre tus sistemas, con trazabilidad de cada acción.",
+          tags: ["RAG", "Agentes", "LLM"],
         },
         {
           title: "Reportes y Analítica",
@@ -127,18 +129,6 @@ export const translations = {
           description:
             "Conectamos tus sistemas y herramientas existentes con soluciones de IA. APIs, webhooks, automatizaciones entre plataformas y flujos de datos en tiempo real.",
           tags: ["APIs", "Webhooks", "Automatización"],
-        },
-        {
-          title: "Redes Sociales",
-          description:
-            "Gestión inteligente de redes sociales con IA. Generación de contenido, programación automática de publicaciones, análisis de engagement y estrategias de crecimiento basadas en datos.",
-          tags: ["Contenido IA", "Programación", "Analítica Social"],
-        },
-        {
-          title: "SEO e Inteligencia de Contenido",
-          description:
-            "Optimización para motores de búsqueda potenciada por IA. Investigación de keywords, auditorías técnicas, generación de contenido optimizado y seguimiento de posicionamiento automatizado.",
-          tags: ["Keywords", "Contenido SEO", "Posicionamiento"],
         },
       ],
     },
@@ -177,34 +167,15 @@ export const translations = {
       title: "Herramientas que impulsan nuestras soluciones",
     },
 
-    // Results
-    results: {
-      label: "Resultados",
-      title: "Resultados que hablan por sí solos",
-      metrics: [
-        {
-          metric: "70%",
-          label: "Reducción de costos operativos",
-          description:
-            "Empresa de logística automatizó su procesamiento de pedidos, eliminando cuellos de botella manuales.",
-        },
-        {
-          metric: "120h",
-          label: "Horas ahorradas al mes",
-          description:
-            "Startup fintech automatizó su onboarding de clientes, pasando de 45 minutos a 3 minutos por cliente.",
-        },
-        {
-          metric: "3x",
-          label: "Aumento en conversión",
-          description:
-            "E-commerce implementó chatbot IA que triplicó la tasa de conversión en atención al cliente.",
-        },
-      ],
-      testimonial:
-        "La automatización que implementaron transformó completamente nuestras operaciones. Lo que antes tomaba días ahora se resuelve en minutos. Una inversión que se pagó sola en el primer mes.",
-      testimonialAuthor: "Carlos Méndez",
-      testimonialRole: "",
+    // Demos
+    demos: {
+      label: "Demos",
+      title: "Prueba la IA aplicada a tu operación",
+      subtitle:
+        "Demos que estamos preparando. Pide acceso anticipado o únete a la lista de espera.",
+      soon: "Próximamente",
+      request: "Solicitar demo o unirme a la lista de espera",
+      back: "Volver a iaction",
     },
 
     // FAQ
@@ -215,27 +186,27 @@ export const translations = {
         {
           question: "¿Cuánto cuesta desarrollar una automatización con IA?",
           answer:
-            "Cada proyecto es único, por lo que los costos varían según la complejidad y alcance. Ofrezco una consulta inicial gratuita donde analizo tus necesidades y proporciono una cotización detallada sin compromisos. Los proyectos típicos van desde soluciones simples hasta integraciones empresariales completas.",
+            "Cada proyecto es único, por lo que los costos varían según la complejidad y alcance. Ofrecemos una consulta inicial gratuita donde analizamos tus necesidades y entregamos una cotización detallada sin compromisos. Los proyectos típicos van desde soluciones simples hasta integraciones empresariales completas.",
         },
         {
           question: "¿Cuánto tiempo toma implementar una solución?",
           answer:
-            "Los tiempos dependen del alcance del proyecto. Automatizaciones simples pueden estar listas en 1-2 semanas, mientras que proyectos más complejos toman de 4 a 8 semanas. Siempre entrego un cronograma detallado antes de comenzar.",
+            "Los tiempos dependen del alcance del proyecto. Automatizaciones simples pueden estar listas en 1-2 semanas, mientras que proyectos más complejos toman de 4 a 8 semanas. Siempre entregamos un cronograma detallado antes de comenzar.",
         },
         {
-          question: "¿Qué tecnologías utilizas para las automatizaciones?",
+          question: "¿Qué tecnologías utilizan?",
           answer:
-            "Trabajo con las tecnologías más avanzadas del mercado: OpenAI, Claude, LangChain, Python, Node.js, APIs REST, bases de datos y plataformas de integración como Zapier y Make. Selecciono la mejor combinación según tus necesidades específicas.",
+            "Trabajamos con modelos de OpenAI, Anthropic (Claude) y Google, LangChain, Python, Node.js, APIs REST y bases de datos. Elegimos la combinación según costo, latencia, privacidad de los datos y los sistemas que ya tienes.",
         },
         {
           question: "¿Necesito conocimientos técnicos para usar las soluciones?",
           answer:
-            "No. Todas las soluciones que desarrollo están diseñadas para ser intuitivas y fáciles de usar. Además, proporciono documentación completa, capacitación y soporte continuo para que tu equipo pueda operar todo sin problemas.",
+            "No. Todas las soluciones que desarrollamos están diseñadas para ser intuitivas y fáciles de usar. Además, entregamos documentación completa, capacitación y soporte continuo para que tu equipo pueda operar todo sin problemas.",
         },
         {
           question: "¿Ofrecen soporte después de la implementación?",
           answer:
-            "Sí, ofrezco planes de soporte que incluyen monitoreo, mantenimiento, actualizaciones y optimización continua. Mi objetivo es que las soluciones sigan funcionando al máximo rendimiento a largo plazo.",
+            "Sí, ofrecemos planes de soporte que incluyen monitoreo, mantenimiento, actualizaciones y optimización continua. Nuestro objetivo es que las soluciones sigan funcionando al máximo rendimiento a largo plazo.",
         },
       ],
     },
@@ -247,17 +218,18 @@ export const translations = {
       subtitle:
         "Cuéntanos sobre tu proyecto y te enviaremos una propuesta personalizada en menos de 24 horas.",
       successTitle: "Mensaje enviado",
-      successMessage: "Te contactaré en menos de 24 horas. Gracias por tu interés.",
+      successMessage: "Te contactaremos en menos de 24 horas. Gracias por tu interés.",
       nameLabel: "Nombre",
       namePlaceholder: "Tu nombre completo",
       emailLabel: "Email",
       emailPlaceholder: "tu@email.com",
       phoneLabel: "Teléfono",
-      phonePlaceholder: "+52 55 1234 5678",
+      phonePlaceholder: "+56 9 1234 5678",
       messageLabel: "Mensaje",
       messagePlaceholder: "Describe brevemente tu proyecto o necesidad...",
       submitButton: "Solicitar Cotización Ahora",
       disclaimer: "Sin compromisos \u00b7 Respuesta garantizada en 24 horas",
+      whatsappPrefix: "¿Prefieres conversar? Escríbenos por",
       errName: "Ingresa tu nombre (2 a 100 caracteres).",
       errEmail: "Ingresa un email válido.",
       errMessage: "Cuéntanos un poco más (10 a 2000 caracteres).",
@@ -273,8 +245,14 @@ export const translations = {
 
     // Footer
     footer: {
-      tagline: "Soluciones de IA personalizadas para transformar tu negocio.",
+      tagline: "Intelligence into Action. Ingeniería de IA para empresas.",
       copyright: "Todos los derechos reservados.",
+      homeHref: "/",
+      homeLabel: "iaction inicio",
+      navLabel: "Enlaces del pie",
+      mailSubject: "Consulta desde iaction.cl",
+      mailBody:
+        "Hola, me gustaría automatizar:\n\nProceso: \nVolumen aproximado: \nPlazo: \n\nNombre y empresa: ",
     },
 
     // Theme toggle
@@ -287,9 +265,9 @@ export const translations = {
   en: {
     // Navbar
     meta: {
-      title: "iaction | Automate Your Business with Artificial Intelligence",
+      title: "iaction | AI Engineering, Automation & Intelligent Systems",
       description:
-        "Custom AI solutions that cut operating costs by up to 70%. Automations, chatbots and smart integrations.",
+        "Applied AI studio: we design, build and integrate artificial intelligence systems that automate operations, connect platforms and turn data into decisions.",
       ogLocale: "en_US",
       skipLink: "Skip to main content",
     },
@@ -297,7 +275,7 @@ export const translations = {
       services: "Services",
       solutions: "Solutions",
       process: "Process",
-      results: "Results",
+      demos: "Demos",
       faq: "FAQ",
       contact: "Contact",
       openMenu: "Open menu",
@@ -306,14 +284,13 @@ export const translations = {
 
     // Hero
     hero: {
-      badge: "100% Freelance \u00b7 Tailored Solutions",
-      titleStart: "Automate Your Business with ",
-      titleAccent: "Artificial Intelligence",
+      badge: "Intelligence into Action",
+      titleStart: "We turn complex processes into ",
+      titleAccent: "intelligent solutions",
       description:
-        "I build custom AI solutions that cut operating costs by up to 70% and transform the way you run your business.",
+        "We design, build and integrate artificial intelligence systems that automate operations, connect platforms and turn data into decisions.",
       ctaQuote: "Request a Quote",
-      ctaConsult: "Book a Free Consultation",
-      ctaCases: "View Success Stories",
+      ctaCases: "See demos",
       microcopy: "Response within 24 hours \u00b7 No commitment",
     },
 
@@ -343,33 +320,36 @@ export const translations = {
     // Services
     services: {
       label: "Services",
-      title: "AI solutions for every need",
+      title: "Three lines of work, one focus: applied AI",
       items: [
         {
-          title: "Process Automation",
+          title: "AI Solutions",
+          summary: "Agents, RAG and enterprise assistants",
           benefits: [
-            "Intelligent workflows",
-            "Integration with your current tools",
-            "Error reduction up to 95%",
-            "Automatic scalability",
+            "Agents that carry out tasks on your systems",
+            "RAG assistants over your internal documentation",
+            "LLMs chosen for cost, latency and privacy",
+            "Quality evaluation and monitoring in production",
           ],
         },
         {
-          title: "AI Chatbots & Interfaces",
+          title: "Intelligent Automation",
+          summary: "Workflows, integrations and document automation",
           benefits: [
-            "24/7 customer support",
-            "Natural language processing",
-            "Multichannel integration",
-            "Continuous learning",
+            "Data extraction from invoices, purchase orders and contracts",
+            "Workflows that connect your current platforms",
+            "Integrations via APIs and webhooks",
+            "Human review where the risk calls for it",
           ],
         },
         {
-          title: "AI Data Analytics",
+          title: "Data Intelligence",
+          summary: "Speech analytics, information extraction and dashboards",
           benefits: [
-            "Predictive dashboards",
-            "Automated insights",
-            "Smart reports",
-            "Hidden pattern detection",
+            "Transcription and analysis of contact center interactions",
+            "Topic, reason and sentiment classification",
+            "Dashboards with your operation's KPIs",
+            "Actionable reports generated automatically",
           ],
         },
       ],
@@ -378,8 +358,8 @@ export const translations = {
     // Solutions
     solutions: {
       label: "Solutions",
-      title: "Projects already delivering results",
-      subtitle: "Solutions implemented across different industries and business needs.",
+      title: "Where we apply AI",
+      subtitle: "The kinds of projects we design and deliver for companies.",
       items: [
         {
           title: "Transcription, Categorization & Interaction Analysis",
@@ -388,16 +368,16 @@ export const translations = {
           tags: ["Contact Center", "Chatbots", "In-Person"],
         },
         {
-          title: "Store Catalogs & Menus",
+          title: "Document Processing",
           description:
-            "Intelligent digitization and management of product catalogs and menus. Automatic updates, categorization, and search optimized with natural language processing.",
-          tags: ["E-commerce", "Retail", "Restaurants"],
+            "We extract tax IDs, amounts, dates and line items from invoices, purchase orders, quotes and contracts, and load them straight into your systems.",
+          tags: ["Invoices", "Contracts", "OCR + LLM"],
         },
         {
-          title: "Websites",
+          title: "Enterprise Assistants & Agents",
           description:
-            "Modern, intelligent websites with AI integrations. Landing pages, platforms, and web applications optimized for conversion and performance.",
-          tags: ["Landing Pages", "Platforms", "Web Apps"],
+            "Assistants that answer with your company's own information (RAG) and agents that carry out tasks on your systems, with every action traceable.",
+          tags: ["RAG", "Agents", "LLM"],
         },
         {
           title: "Reports & Analytics",
@@ -410,18 +390,6 @@ export const translations = {
           description:
             "We connect your existing systems and tools with AI solutions. APIs, webhooks, cross-platform automations, and real-time data flows.",
           tags: ["APIs", "Webhooks", "Automation"],
-        },
-        {
-          title: "Social Media",
-          description:
-            "AI-powered social media management. Content generation, automated post scheduling, engagement analytics, and data-driven growth strategies.",
-          tags: ["AI Content", "Scheduling", "Social Analytics"],
-        },
-        {
-          title: "SEO & Content Intelligence",
-          description:
-            "AI-powered search engine optimization. Keyword research, technical audits, optimized content generation, and automated ranking tracking.",
-          tags: ["Keywords", "SEO Content", "Rankings"],
         },
       ],
     },
@@ -460,34 +428,14 @@ export const translations = {
       title: "Tools that power our solutions",
     },
 
-    // Results
-    results: {
-      label: "Results",
-      title: "Results that speak for themselves",
-      metrics: [
-        {
-          metric: "70%",
-          label: "Reduction in operating costs",
-          description:
-            "A logistics company automated its order processing, eliminating manual bottlenecks.",
-        },
-        {
-          metric: "120h",
-          label: "Hours saved per month",
-          description:
-            "A fintech startup automated its client onboarding, going from 45 minutes to 3 minutes per client.",
-        },
-        {
-          metric: "3x",
-          label: "Increase in conversion",
-          description:
-            "An e-commerce business implemented an AI chatbot that tripled customer service conversion rates.",
-        },
-      ],
-      testimonial:
-        "The automation they implemented completely transformed our operations. What used to take days is now resolved in minutes. An investment that paid for itself in the first month.",
-      testimonialAuthor: "Carlos Mendez",
-      testimonialRole: "",
+    // Demos
+    demos: {
+      label: "Demos",
+      title: "Try AI applied to your operation",
+      subtitle: "Demos we're preparing. Ask for early access or join the waitlist.",
+      soon: "Coming soon",
+      request: "Request a demo or join the waitlist",
+      back: "Back to iaction",
     },
 
     // FAQ
@@ -498,27 +446,27 @@ export const translations = {
         {
           question: "How much does it cost to develop an AI automation?",
           answer:
-            "Each project is unique, so costs vary depending on complexity and scope. I offer a free initial consultation where I analyze your needs and provide a detailed, no-obligation quote. Typical projects range from simple solutions to full enterprise integrations.",
+            "Each project is unique, so costs vary depending on complexity and scope. we offer a free initial consultation where we analyze your needs and provide a detailed, no-obligation quote. Typical projects range from simple solutions to full enterprise integrations.",
         },
         {
           question: "How long does it take to implement a solution?",
           answer:
-            "Timelines depend on the project scope. Simple automations can be ready in 1-2 weeks, while more complex projects take 4 to 8 weeks. I always deliver a detailed timeline before starting.",
+            "Timelines depend on the project scope. Simple automations can be ready in 1-2 weeks, while more complex projects take 4 to 8 weeks. We always deliver a detailed timeline before starting.",
         },
         {
-          question: "What technologies do you use for automations?",
+          question: "What technologies do you use?",
           answer:
-            "I work with the most advanced technologies on the market: OpenAI, Claude, LangChain, Python, Node.js, REST APIs, databases, and integration platforms like Zapier and Make. I select the best combination based on your specific needs.",
+            "We work with models from OpenAI, Anthropic (Claude) and Google, LangChain, Python, Node.js, REST APIs and databases. We pick the combination based on cost, latency, data privacy and the systems you already run.",
         },
         {
           question: "Do I need technical knowledge to use the solutions?",
           answer:
-            "No. All solutions I develop are designed to be intuitive and easy to use. I also provide complete documentation, training, and ongoing support so your team can operate everything smoothly.",
+            "No. All solutions we build are designed to be intuitive and easy to use. We also provide complete documentation, training, and ongoing support so your team can operate everything smoothly.",
         },
         {
           question: "Do you offer support after implementation?",
           answer:
-            "Yes, I offer support plans that include monitoring, maintenance, updates, and continuous optimization. My goal is for solutions to keep running at peak performance long-term.",
+            "Yes, we offer support plans that include monitoring, maintenance, updates, and continuous optimization. Our goal is for solutions to keep running at peak performance long-term.",
         },
       ],
     },
@@ -528,9 +476,9 @@ export const translations = {
       badge: "Get Started Today",
       title: "Ready to Automate?",
       subtitle:
-        "Tell me about your project and I'll send you a personalized proposal within 24 hours.",
+        "Tell us about your project and we'll send you a personalized proposal within 24 hours.",
       successTitle: "Message Sent",
-      successMessage: "I'll contact you within 24 hours. Thank you for your interest.",
+      successMessage: "We'll contact you within 24 hours. Thank you for your interest.",
       nameLabel: "Name",
       namePlaceholder: "Your full name",
       emailLabel: "Email",
@@ -541,6 +489,7 @@ export const translations = {
       messagePlaceholder: "Briefly describe your project or need...",
       submitButton: "Request a Quote Now",
       disclaimer: "No commitment \u00b7 Guaranteed response within 24 hours",
+      whatsappPrefix: "Prefer to chat? Message us on",
       errName: "Enter your name (2 to 100 characters).",
       errEmail: "Enter a valid email.",
       errMessage: "Tell us a bit more (10 to 2000 characters).",
@@ -556,8 +505,14 @@ export const translations = {
 
     // Footer
     footer: {
-      tagline: "Custom AI solutions to transform your business.",
+      tagline: "Intelligence into Action. AI engineering for companies.",
       copyright: "All rights reserved.",
+      homeHref: "/en",
+      homeLabel: "iaction home",
+      navLabel: "Footer links",
+      mailSubject: "Inquiry from iaction.cl",
+      mailBody:
+        "Hi, I'd like to automate:\n\nProcess: \nApproximate volume: \nTimeline: \n\nName and company: ",
     },
 
     // Theme toggle

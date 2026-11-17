@@ -12,7 +12,7 @@ export function GET() {
 
 > ${t.meta.description}
 
-Consultora chilena de automatización de procesos con IA.
+Estudio chileno de ingeniería de IA aplicada: agentes, automatización inteligente y data intelligence.
 
 ## Páginas
 - [Sitio en español](${siteConfig.url}/): servicios, soluciones, proceso y preguntas frecuentes
@@ -20,9 +20,9 @@ Consultora chilena de automatización de procesos con IA.
 - [Contacto](${siteConfig.url}/#contacto): formulario para solicitar una evaluación
 
 ## Servicios
-${list(t.services.items.map((s) => `**${s.title}**: ${s.benefits.join("; ")}`))}
+${list(t.services.items.map((s) => `**${s.title}** (${s.summary}): ${s.benefits.join("; ")}`))}
 
-## Soluciones implementadas
+## Dónde aplicamos IA
 ${list(t.solutions.items.map((s) => `**${s.title}**: ${s.description}`))}
 
 ## Proceso

@@ -1,11 +1,13 @@
 export const siteConfig = {
   name: "iaction",
   description:
-    "Desarrollo de soluciones de IA personalizadas que reducen costos operativos hasta un 70%. Automatizaciones, chatbots e integraciones inteligentes.",
+    "Estudio de IA aplicada: diseñamos, desarrollamos e integramos sistemas de inteligencia artificial que automatizan operaciones, conectan plataformas y transforman datos en decisiones.",
   locale: "es_ES",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.iaction.cl",
   ogImage: "/android-icon-192x192.png",
   email: "contacto@iaction.cl",
+  // WhatsApp en base64 para que no aparezca en texto plano (ver components/whatsapp-link.tsx).
+  phoneB64: "NTY5ODc1ODAyODg=",
   keywords: [
     "automatización con IA",
     "inteligencia artificial para empresas",
@@ -14,6 +16,8 @@ export const siteConfig = {
     "consultoría IA",
     "desarrollo de soluciones IA",
     "optimización de procesos",
-    "SEO con inteligencia artificial",
+    "agentes de IA",
+    "speech analytics",
+    "automatización documental",
   ],
 } as const;

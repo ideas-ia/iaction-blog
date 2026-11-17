@@ -1,24 +1,28 @@
 import { Mail } from "lucide-react";
-import { FaGithub as Github, FaLinkedin as Linkedin } from "react-icons/fa6";
+import {
+  FaGithub as Github,
+  FaLinkedin as Linkedin,
+  FaWhatsapp as Whatsapp,
+} from "react-icons/fa6";
 import { ThemeLogo } from "@/components/theme-logo";
+import { WhatsAppLink } from "@/components/whatsapp-link";
 import { siteConfig } from "@/lib/site";
 import type { Translations } from "@/lib/translations";
 
-const socials = [
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Github, href: "#", label: "GitHub" },
-  {
-    icon: Mail,
-    href: `mailto:${siteConfig.email}?subject=${encodeURIComponent("Consulta desde iaction.cl")}&body=${encodeURIComponent("Hola, me gustaría automatizar:\n\nProceso: \nVolumen aproximado: \nPlazo: \n\nNombre y empresa: ")}`,
-    label: "Email",
-  },
-];
-
 export function Footer({ t }: { t: Translations }) {
+  const socials = [
+    { icon: Linkedin, href: "#", label: "LinkedIn" },
+    { icon: Github, href: "#", label: "GitHub" },
+    {
+      icon: Mail,
+      href: `mailto:${siteConfig.email}?subject=${encodeURIComponent(t.footer.mailSubject)}&body=${encodeURIComponent(t.footer.mailBody)}`,
+      label: "Email",
+    },
+  ];
   const links = [
     { label: t.nav.services, href: "#servicios" },
     { label: t.nav.process, href: "#proceso" },
-    { label: t.nav.results, href: "#resultados" },
+    { label: t.nav.demos, href: "#demos" },
     { label: t.nav.faq, href: "#faq" },
     { label: t.nav.contact, href: "#contacto" },
   ];
@@ -28,9 +32,9 @@ export function Footer({ t }: { t: Translations }) {
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-8 px-6 py-12 md:flex-row md:justify-between">
         <div className="flex flex-col items-center gap-4 md:items-start">
           <a
-            href="/"
+            href={t.footer.homeHref}
             className="flex items-center gap-2 rounded-md focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-            aria-label="iaction inicio"
+            aria-label={t.footer.homeLabel}
           >
             <div className="flex h-8 w-8 items-center justify-center rounded-lg overflow-hidden">
               <ThemeLogo size={32} />
@@ -43,7 +47,7 @@ export function Footer({ t }: { t: Translations }) {
         </div>
 
         <nav
-          aria-label="Enlaces del pie"
+          aria-label={t.footer.navLabel}
           className="flex flex-wrap items-center justify-center gap-6"
         >
           {links.map((link) => (
@@ -68,6 +72,12 @@ export function Footer({ t }: { t: Translations }) {
               <social.icon className="h-4 w-4" aria-hidden="true" />
             </a>
           ))}
+          <WhatsAppLink
+            label="WhatsApp"
+            className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+          >
+            <Whatsapp className="h-4 w-4" aria-hidden="true" />
+          </WhatsAppLink>
         </div>
       </div>
 

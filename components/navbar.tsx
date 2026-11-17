@@ -27,7 +27,7 @@ export function Navbar() {
     { label: t.nav.services, href: "#servicios" },
     { label: t.nav.solutions, href: "#soluciones" },
     { label: t.nav.process, href: "#proceso" },
-    { label: t.nav.results, href: "#resultados" },
+    { label: t.nav.demos, href: "#demos" },
     { label: t.nav.faq, href: "#faq" },
   ];
 

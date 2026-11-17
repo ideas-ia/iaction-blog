@@ -11,9 +11,12 @@ export function ServicesSection({ t }: { t: Translations }) {
         <div className="reveal divide-y divide-border border-y border-border">
           {t.services.items.map((service) => (
             <div key={service.title} className="grid gap-4 py-8 md:grid-cols-[1fr_2fr] md:gap-12">
-              <h3 className="font-display text-xl font-semibold text-foreground">
-                {service.title}
-              </h3>
+              <div>
+                <h3 className="font-display text-xl font-semibold text-foreground">
+                  {service.title}
+                </h3>
+                <p className="mt-1 text-sm text-muted-foreground">{service.summary}</p>
+              </div>
               <ul className="grid gap-x-8 gap-y-2.5 sm:grid-cols-2">
                 {service.benefits.map((benefit) => (
                   <li key={benefit} className="flex items-start gap-2 text-muted-foreground">
