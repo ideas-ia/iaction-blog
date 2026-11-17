@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { CursorGlow } from "@/components/cursor-glow";
 import { Button } from "@/components/ui/button";
 import { type Locale, translations } from "@/lib/translations";
 import { type DemoSlug, demos } from "../demos";
@@ -26,7 +27,8 @@ export default async function DemoPage({ params }: PageProps<"/[lang]/demos/[slu
   const t = translations[lang as Locale];
   const home = lang === "en" ? "/en" : "/es";
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center gap-6 px-4 text-center">
+    <main className="ai-bg flex min-h-screen flex-col items-center justify-center gap-6 px-4 text-center">
+      <CursorGlow />
       <span className="rounded-full border border-border px-3 py-1 text-sm text-muted-foreground">
         {t.demos.soon}
       </span>
