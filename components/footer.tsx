@@ -4,17 +4,16 @@ import { ThemeLogo } from "@/components/theme-logo";
 import { siteConfig } from "@/lib/site";
 import type { Translations } from "@/lib/translations";
 
-const socials = [
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Github, href: "#", label: "GitHub" },
-  {
-    icon: Mail,
-    href: `mailto:${siteConfig.email}?subject=${encodeURIComponent("Consulta desde iaction.cl")}&body=${encodeURIComponent("Hola, me gustaría automatizar:\n\nProceso: \nVolumen aproximado: \nPlazo: \n\nNombre y empresa: ")}`,
-    label: "Email",
-  },
-];
-
 export function Footer({ t }: { t: Translations }) {
+  const socials = [
+    { icon: Linkedin, href: "#", label: "LinkedIn" },
+    { icon: Github, href: "#", label: "GitHub" },
+    {
+      icon: Mail,
+      href: `mailto:${siteConfig.email}?subject=${encodeURIComponent(t.footer.mailSubject)}&body=${encodeURIComponent(t.footer.mailBody)}`,
+      label: "Email",
+    },
+  ];
   const links = [
     { label: t.nav.services, href: "#servicios" },
     { label: t.nav.process, href: "#proceso" },
@@ -28,9 +27,9 @@ export function Footer({ t }: { t: Translations }) {
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-8 px-6 py-12 md:flex-row md:justify-between">
         <div className="flex flex-col items-center gap-4 md:items-start">
           <a
-            href="/"
+            href={t.footer.homeHref}
             className="flex items-center gap-2 rounded-md focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-            aria-label="iaction inicio"
+            aria-label={t.footer.homeLabel}
           >
             <div className="flex h-8 w-8 items-center justify-center rounded-lg overflow-hidden">
               <ThemeLogo size={32} />
@@ -43,7 +42,7 @@ export function Footer({ t }: { t: Translations }) {
         </div>
 
         <nav
-          aria-label="Enlaces del pie"
+          aria-label={t.footer.navLabel}
           className="flex flex-wrap items-center justify-center gap-6"
         >
           {links.map((link) => (

@@ -87,7 +87,7 @@ export default async function Page({ params }: PageProps<"/[lang]">) {
           <ServicesSection t={t} />
         </div>
         <div className="cv-auto">
-          <DemosSection />
+          <DemosSection t={t} lang={lang} />
         </div>
         <div className="cv-auto">
           <SolutionsSection t={t} />

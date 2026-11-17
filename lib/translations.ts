@@ -167,6 +167,17 @@ export const translations = {
       title: "Herramientas que impulsan nuestras soluciones",
     },
 
+    // Demos
+    demos: {
+      label: "Demos",
+      title: "Prueba la IA aplicada a tu operación",
+      subtitle:
+        "Demos que estamos preparando. Pide acceso anticipado o únete a la lista de espera.",
+      soon: "Próximamente",
+      request: "Solicitar demo o unirme a la lista de espera",
+      back: "Volver a iaction",
+    },
+
     // FAQ
     faq: {
       label: "FAQ",
@@ -235,6 +246,12 @@ export const translations = {
     footer: {
       tagline: "Intelligence into Action. Ingeniería de IA para empresas.",
       copyright: "Todos los derechos reservados.",
+      homeHref: "/",
+      homeLabel: "iaction inicio",
+      navLabel: "Enlaces del pie",
+      mailSubject: "Consulta desde iaction.cl",
+      mailBody:
+        "Hola, me gustaría automatizar:\n\nProceso: \nVolumen aproximado: \nPlazo: \n\nNombre y empresa: ",
     },
 
     // Theme toggle
@@ -410,6 +427,16 @@ export const translations = {
       title: "Tools that power our solutions",
     },
 
+    // Demos
+    demos: {
+      label: "Demos",
+      title: "Try AI applied to your operation",
+      subtitle: "Demos we're preparing. Ask for early access or join the waitlist.",
+      soon: "Coming soon",
+      request: "Request a demo or join the waitlist",
+      back: "Back to iaction",
+    },
+
     // FAQ
     faq: {
       label: "FAQ",
@@ -478,6 +505,12 @@ export const translations = {
     footer: {
       tagline: "Intelligence into Action. AI engineering for companies.",
       copyright: "All rights reserved.",
+      homeHref: "/en",
+      homeLabel: "iaction home",
+      navLabel: "Footer links",
+      mailSubject: "Inquiry from iaction.cl",
+      mailBody:
+        "Hi, I'd like to automate:\n\nProcess: \nApproximate volume: \nTimeline: \n\nName and company: ",
     },
 
     // Theme toggle

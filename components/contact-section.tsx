@@ -22,7 +22,7 @@ const minTrim = (min: number, msg: string) => (v?: string) => (v ?? "").trim().l
 export function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
   const [serverError, setServerError] = useState<string | null>(null);
-  const { t } = useI18n();
+  const { t, locale } = useI18n();
 
   const {
     register,
@@ -37,14 +37,14 @@ export function ContactSection() {
   // Viene desde un subdominio de demo (?demo=slug): prellenar el mensaje de esa demo.
   useEffect(() => {
     const slug = new URLSearchParams(window.location.search).get("demo");
-    const demo = slug && slug in demos ? demos[slug as DemoSlug] : null;
+    const demo = slug && slug in demos ? demos[slug as DemoSlug][locale] : null;
     if (!demo) return;
     setValue("message", demo.message, { shouldValidate: true });
     // La sección carga diferida, así que el salto nativo a #contacto falla: llevamos el foco al primer campo.
     const name = document.getElementById("name");
     name?.focus({ preventScroll: true });
     name?.scrollIntoView({ block: "center" });
-  }, [setValue]);
+  }, [setValue, locale]);
 
   // WebMCP: si un agente envía el formulario, le devolvemos el resultado como texto.
   function handleFormSubmit(e: React.FormEvent<HTMLFormElement>) {
