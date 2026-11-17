@@ -18,7 +18,7 @@ export function Footer({ t }: { t: Translations }) {
   const links = [
     { label: t.nav.services, href: "#servicios" },
     { label: t.nav.process, href: "#proceso" },
-    { label: t.nav.results, href: "#resultados" },
+    { label: t.nav.demos, href: "#demos" },
     { label: t.nav.faq, href: "#faq" },
     { label: t.nav.contact, href: "#contacto" },
   ];

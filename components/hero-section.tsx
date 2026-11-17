@@ -23,7 +23,7 @@ export function HeroSection({ t }: { t: Translations }) {
               <a href="#contacto">{t.hero.ctaQuote}</a>
             </Button>
             <a
-              href="#resultados"
+              href="#demos"
               className="inline-flex min-h-11 items-center gap-2 rounded-md text-base font-medium text-foreground underline-offset-4 hover:underline focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
             >
               {t.hero.ctaCases}
@@ -34,16 +34,13 @@ export function HeroSection({ t }: { t: Translations }) {
           <p className="mt-4 text-sm text-muted-foreground">{t.hero.microcopy}</p>
         </div>
 
-        <dl className="grid grid-cols-3 gap-6 lg:grid-cols-1 lg:gap-0">
-          {t.results.metrics.map((item) => (
-            <div
-              key={item.metric}
-              className="flex flex-col-reverse justify-end border-t border-border pt-4 lg:flex-row-reverse lg:items-baseline lg:gap-5 lg:py-5"
-            >
-              <dt className="text-sm leading-snug text-muted-foreground">{item.label}</dt>
-              <dd className="font-display text-3xl font-semibold tracking-tight text-foreground tabular-nums lg:w-28 lg:shrink-0 lg:text-4xl">
-                {item.metric}
-              </dd>
+        <dl className="grid gap-4 sm:grid-cols-3 sm:gap-6 lg:grid-cols-1 lg:gap-0">
+          {t.services.items.map((item) => (
+            <div key={item.title} className="border-t border-border pt-4 lg:py-5">
+              <dt className="font-display text-lg font-semibold tracking-tight text-foreground lg:text-xl">
+                {item.title}
+              </dt>
+              <dd className="mt-1 text-sm leading-snug text-muted-foreground">{item.summary}</dd>
             </div>
           ))}
         </dl>

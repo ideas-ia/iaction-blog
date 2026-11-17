@@ -7,7 +7,6 @@ import { HeroSection } from "@/components/hero-section";
 import { Navbar } from "@/components/navbar";
 import { ProblemsSection } from "@/components/problems-section";
 import { ProcessSection } from "@/components/process-section";
-import { ResultsSection } from "@/components/results-section";
 import { ServicesSection } from "@/components/services-section";
 import { SolutionsSection } from "@/components/solutions-section";
 import { TechMarqueeSection } from "@/components/tech-marquee-section";
@@ -42,7 +41,7 @@ const buildStructuredData = (lang: Locale) => ({
     {
       "@type": "ProfessionalService",
       "@id": `${siteConfig.url}#service`,
-      name: "Servicios de IA para empresas",
+      name: "Ingeniería de IA aplicada para empresas",
       description: translations[lang].meta.description,
       url: siteConfig.url,
       provider: {
@@ -50,10 +49,10 @@ const buildStructuredData = (lang: Locale) => ({
       },
       areaServed: "Latinoamérica",
       serviceType: [
-        "Automatización de procesos con IA",
-        "Chatbots e interfaces IA",
-        "Integraciones inteligentes",
-        "Análisis de datos con IA",
+        "Agentes, RAG y asistentes empresariales",
+        "Automatización inteligente e integraciones",
+        "Automatización documental",
+        "Speech analytics y Data Intelligence",
       ],
     },
     {
@@ -88,6 +87,9 @@ export default async function Page({ params }: PageProps<"/[lang]">) {
           <ServicesSection t={t} />
         </div>
         <div className="cv-auto">
+          <DemosSection />
+        </div>
+        <div className="cv-auto">
           <SolutionsSection t={t} />
         </div>
         <div className="cv-auto">
@@ -95,12 +97,6 @@ export default async function Page({ params }: PageProps<"/[lang]">) {
         </div>
         <div className="cv-auto">
           <TechMarqueeSection t={t} />
-        </div>
-        <div className="cv-auto">
-          <ResultsSection t={t} />
-        </div>
-        <div className="cv-auto">
-          <DemosSection />
         </div>
         <div className="cv-auto">
           <FaqSection t={t} />
