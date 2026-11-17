@@ -1,6 +1,11 @@
 import { Mail } from "lucide-react";
-import { FaGithub as Github, FaLinkedin as Linkedin } from "react-icons/fa6";
+import {
+  FaGithub as Github,
+  FaLinkedin as Linkedin,
+  FaWhatsapp as Whatsapp,
+} from "react-icons/fa6";
 import { ThemeLogo } from "@/components/theme-logo";
+import { WhatsAppLink } from "@/components/whatsapp-link";
 import { siteConfig } from "@/lib/site";
 import type { Translations } from "@/lib/translations";
 
@@ -67,6 +72,12 @@ export function Footer({ t }: { t: Translations }) {
               <social.icon className="h-4 w-4" aria-hidden="true" />
             </a>
           ))}
+          <WhatsAppLink
+            label="WhatsApp"
+            className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+          >
+            <Whatsapp className="h-4 w-4" aria-hidden="true" />
+          </WhatsAppLink>
         </div>
       </div>
 

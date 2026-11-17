@@ -6,6 +6,8 @@ export const siteConfig = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.iaction.cl",
   ogImage: "/android-icon-192x192.png",
   email: "contacto@iaction.cl",
+  // WhatsApp en base64 para que no aparezca en texto plano (ver components/whatsapp-link.tsx).
+  phoneB64: "NTY5ODc1ODAyODg=",
   keywords: [
     "automatización con IA",
     "inteligencia artificial para empresas",

@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { WhatsAppLink } from "@/components/whatsapp-link";
 import { useI18n } from "@/lib/i18n-context";
 
 // Validación en el navegador con las reglas de react-hook-form (sin zod: ~33 KB menos).
@@ -247,6 +248,15 @@ export function ContactSection() {
 
               <p className="mt-3 text-center text-xs text-muted-foreground">
                 {t.contact.disclaimer}
+              </p>
+              <p className="mt-2 text-center text-sm text-muted-foreground">
+                {t.contact.whatsappPrefix}{" "}
+                <WhatsAppLink
+                  showNumber
+                  className="font-medium text-foreground underline underline-offset-4 hover:text-primary"
+                >
+                  WhatsApp
+                </WhatsAppLink>
               </p>
             </form>
           )}
